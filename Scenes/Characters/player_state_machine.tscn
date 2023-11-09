@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmii8r2pkvgak"]
+
+[ext_resource type="Script" path="res://Scripts/Characters/PlayerStateMachine.cs" id="1_r8js1"]
+
+[node name="PlayerStateMachine" type="Node"]
+script = ExtResource("1_r8js1")

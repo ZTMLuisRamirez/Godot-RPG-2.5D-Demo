@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dupcd37r2l3p8"]
+
+[ext_resource type="PackedScene" uid="uid://bmii8r2pkvgak" path="res://Scenes/Characters/player_state_machine.tscn" id="1_wqwcg"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xrd2p"]
+
+[node name="Player" type="CharacterBody3D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_xrd2p")
+
+[node name="PlayerStateMachine" parent="." instance=ExtResource("1_wqwcg")]

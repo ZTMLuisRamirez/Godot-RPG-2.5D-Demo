@@ -1,26 +1,32 @@
 using Godot;
-using System;
+using RPG.General;
 
 namespace RPG.Characters.States;
 
-public class PlayerIdleState : CharacterState
+public partial class PlayerIdleState : PlayerState
 {
-    public PlayerIdleState(CharacterStateMachine newStateMachineNode) : base(newStateMachineNode)
-    {
-    }
+    public override State StateType { get; } = State.Idle;
 
     public override void EnterState()
     {
-        GD.Print("Entered State");
+        base.EnterState();
+
+        animPlayerNode.Play(Constants.IDLE_ANIM);
     }
 
-    public override void ExitState()
+    public override void _Process(double delta)
     {
-        throw new NotImplementedException();
+        var direction = GetMoveInput();
+
+        if (direction != Vector2.Zero)
+        {
+            stateMachineNode.SwitchState(State.Move);
+        }
     }
 
-    public override void ProcessState()
+    public override void _Input(InputEvent @event)
     {
-        throw new NotImplementedException();
+        CheckForAttackState();
+        CheckForDashState();
     }
 }

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://u54fa43bsuid"]
+
+[ext_resource type="Script" path="res://Scripts/Characters/CharacterStateMachine.cs" id="1_uyt2p"]
+
+[node name="CharacterStateMachine" type="Node"]
+script = ExtResource("1_uyt2p")

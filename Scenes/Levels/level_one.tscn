@@ -5,3 +5,7 @@
 [node name="level_one" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_nkxw5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0221, 1.1957, 0.963958)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.536135, 1.08529, 3.9289)

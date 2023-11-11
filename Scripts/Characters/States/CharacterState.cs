@@ -1,21 +1,51 @@
+using System;
 using Godot;
 
 namespace RPG.Characters.States;
 
-public abstract class CharacterState
+public abstract partial class CharacterState : Node
 {
+    public abstract State StateType { get; }
+    protected CharacterBody3D characterBodyNode;
     protected CharacterStateMachine stateMachineNode;
+    protected Sprite3D sprite3DNode;
+    protected AnimationPlayer animPlayerNode;
 
-    public CharacterState(CharacterStateMachine newStateMachineNode)
+    public Func<bool> CanTransition = () => true;
+
+    public override void _Ready()
     {
-        stateMachineNode = newStateMachineNode;
+        characterBodyNode = GetOwner<CharacterBody3D>();
+        stateMachineNode = GetParent<CharacterStateMachine>();
+        sprite3DNode = characterBodyNode.GetNode<Sprite3D>("Sprite3D");
+        animPlayerNode = sprite3DNode.GetNode<AnimationPlayer>("AnimationPlayer");
     }
 
-    public abstract void EnterState();
+    public virtual void EnterState()
+    {
+        ProcessMode = Node.ProcessModeEnum.Inherit;
+    }
 
-    public abstract void ProcessState();
+    public virtual void ExitState()
+    {
+        ProcessMode = Node.ProcessModeEnum.Disabled;
+    }
 
-    public abstract void ExitState();
+    protected void Flip()
+    {
+        var isNotMovingHorizontally = characterBodyNode.Velocity.X == 0;
+
+        if (isNotMovingHorizontally)
+        {
+            return;
+        }
+
+        var isMovingLeft = characterBodyNode.Velocity.X < 0;
+
+        sprite3DNode.FlipH = isMovingLeft;
+    }
+
+    // public abstract void Input(InputEvent inputEvent);
 
     // protected CharacterBody2D characterNode;
     // protected CharacterStateMachineController stateController;
@@ -48,18 +78,7 @@ public abstract class CharacterState
     //     statsComp = GetComponent<CharacterStats>();
     // }
 
-    // protected void Flip(Vector3 forward)
-    // {
-    //     var isNotMovingHorizontally = forward.x == 0;
 
-    //     if (isNotMovingHorizontally)
-    //     {
-    //         return;
-    //     }
-
-    //     var isMovingLeft = forward.x < 0;
-    //     spriteComp.flipX = isMovingLeft;
-    // }
 
     // protected bool IsWithinStateRange(CharacterState state)
     // {

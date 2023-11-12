@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://3qofww3ew28j"
+path="res://.godot/imported/wall_Tsplit.obj-8ca12f45aa35961fccaf3a897af6ebfe.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wall_Tsplit.obj-8ca12f45aa35961fccaf3a897af6ebfe.mesh"]
+
+source_file="res://Assets/Models/Dungeon/obj/wall_Tsplit.obj"
+dest_files=["res://.godot/imported/wall_Tsplit.obj-8ca12f45aa35961fccaf3a897af6ebfe.mesh", "res://.godot/imported/wall_Tsplit.obj-8ca12f45aa35961fccaf3a897af6ebfe.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

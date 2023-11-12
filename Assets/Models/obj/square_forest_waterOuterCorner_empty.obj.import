@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b7gb3dwthyeq1"
+path="res://.godot/imported/square_forest_waterOuterCorner_empty.obj-21744567a9d4d6bfbcb61f3ebf744eed.mesh"
+
+[deps]
+
+files=["res://.godot/imported/square_forest_waterOuterCorner_empty.obj-21744567a9d4d6bfbcb61f3ebf744eed.mesh"]
+
+source_file="res://Assets/Models/obj/square_forest_waterOuterCorner_empty.obj"
+dest_files=["res://.godot/imported/square_forest_waterOuterCorner_empty.obj-21744567a9d4d6bfbcb61f3ebf744eed.mesh", "res://.godot/imported/square_forest_waterOuterCorner_empty.obj-21744567a9d4d6bfbcb61f3ebf744eed.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

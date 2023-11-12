@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b682b36o22fs3"
+path="res://.godot/imported/coin_stack_large.obj-7c0f148101ffc0a51ea610601931ba31.mesh"
+
+[deps]
+
+files=["res://.godot/imported/coin_stack_large.obj-7c0f148101ffc0a51ea610601931ba31.mesh"]
+
+source_file="res://Assets/Models/Dungeon/obj/coin_stack_large.obj"
+dest_files=["res://.godot/imported/coin_stack_large.obj-7c0f148101ffc0a51ea610601931ba31.mesh", "res://.godot/imported/coin_stack_large.obj-7c0f148101ffc0a51ea610601931ba31.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://8yluciuoempm"
+path="res://.godot/imported/keg.obj-9c1699e7a80e3abcb1536a1ac3c21a7c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/keg.obj-9c1699e7a80e3abcb1536a1ac3c21a7c.mesh"]
+
+source_file="res://Assets/Models/Dungeon/obj/keg.obj"
+dest_files=["res://.godot/imported/keg.obj-9c1699e7a80e3abcb1536a1ac3c21a7c.mesh", "res://.godot/imported/keg.obj-9c1699e7a80e3abcb1536a1ac3c21a7c.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

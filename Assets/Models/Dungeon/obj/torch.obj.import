@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://mhjjod23owq5"
+path="res://.godot/imported/torch.obj-0e5808719f04d939c1004672e5044ed0.mesh"
+
+[deps]
+
+files=["res://.godot/imported/torch.obj-0e5808719f04d939c1004672e5044ed0.mesh"]
+
+source_file="res://Assets/Models/Dungeon/obj/torch.obj"
+dest_files=["res://.godot/imported/torch.obj-0e5808719f04d939c1004672e5044ed0.mesh", "res://.godot/imported/torch.obj-0e5808719f04d939c1004672e5044ed0.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

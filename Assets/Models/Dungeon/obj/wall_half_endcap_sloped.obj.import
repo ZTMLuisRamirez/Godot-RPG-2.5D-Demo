@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://d14aict70e8sj"
+path="res://.godot/imported/wall_half_endcap_sloped.obj-00d094f5a6f2872555bfba3669e02cec.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wall_half_endcap_sloped.obj-00d094f5a6f2872555bfba3669e02cec.mesh"]
+
+source_file="res://Assets/Models/Dungeon/obj/wall_half_endcap_sloped.obj"
+dest_files=["res://.godot/imported/wall_half_endcap_sloped.obj-00d094f5a6f2872555bfba3669e02cec.mesh", "res://.godot/imported/wall_half_endcap_sloped.obj-00d094f5a6f2872555bfba3669e02cec.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

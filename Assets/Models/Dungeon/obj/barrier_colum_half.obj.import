@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://brnsvqdo42ukk"
+path="res://.godot/imported/barrier_colum_half.obj-2d5dc839f6898f9d5f562d426f785095.mesh"
+
+[deps]
+
+files=["res://.godot/imported/barrier_colum_half.obj-2d5dc839f6898f9d5f562d426f785095.mesh"]
+
+source_file="res://Assets/Models/Dungeon/obj/barrier_colum_half.obj"
+dest_files=["res://.godot/imported/barrier_colum_half.obj-2d5dc839f6898f9d5f562d426f785095.mesh", "res://.godot/imported/barrier_colum_half.obj-2d5dc839f6898f9d5f562d426f785095.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

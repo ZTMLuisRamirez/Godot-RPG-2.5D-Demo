@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://iucgx70o44vl"
+path="res://.godot/imported/candle_melted.obj-538c1d979f18826de5600f3d1ab57ff8.mesh"
+
+[deps]
+
+files=["res://.godot/imported/candle_melted.obj-538c1d979f18826de5600f3d1ab57ff8.mesh"]
+
+source_file="res://Assets/Models/Dungeon/obj/candle_melted.obj"
+dest_files=["res://.godot/imported/candle_melted.obj-538c1d979f18826de5600f3d1ab57ff8.mesh", "res://.godot/imported/candle_melted.obj-538c1d979f18826de5600f3d1ab57ff8.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

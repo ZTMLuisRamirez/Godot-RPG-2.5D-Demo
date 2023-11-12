@@ -38,6 +38,11 @@ public partial class CharacterStateMachine : Node
 			);
 		}
 
+		if (!states[newState].CanTransition())
+		{
+			return;
+		}
+
 		currentState.ExitState();
 		currentState = states[newState];
 		currentState.EnterState();

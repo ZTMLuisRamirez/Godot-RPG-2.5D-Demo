@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bqw1uqjql5ib8"
+path="res://.godot/imported/floor_dirt_large_rocky.obj-272ce1b4185de08d2ed85f3da33b4e34.mesh"
+
+[deps]
+
+files=["res://.godot/imported/floor_dirt_large_rocky.obj-272ce1b4185de08d2ed85f3da33b4e34.mesh"]
+
+source_file="res://Assets/Models/Dungeon/obj/floor_dirt_large_rocky.obj"
+dest_files=["res://.godot/imported/floor_dirt_large_rocky.obj-272ce1b4185de08d2ed85f3da33b4e34.mesh", "res://.godot/imported/floor_dirt_large_rocky.obj-272ce1b4185de08d2ed85f3da33b4e34.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

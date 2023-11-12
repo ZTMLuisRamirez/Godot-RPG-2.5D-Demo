@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bnqcw6x5w6ves"
+path="res://.godot/imported/wall_broken.obj-61236b8e934e7dc35f16e83ddd63abbb.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wall_broken.obj-61236b8e934e7dc35f16e83ddd63abbb.mesh"]
+
+source_file="res://Assets/Models/Dungeon/obj/wall_broken.obj"
+dest_files=["res://.godot/imported/wall_broken.obj-61236b8e934e7dc35f16e83ddd63abbb.mesh", "res://.godot/imported/wall_broken.obj-61236b8e934e7dc35f16e83ddd63abbb.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

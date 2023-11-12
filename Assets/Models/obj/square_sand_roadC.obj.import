@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c3x582agrpjuu"
+path="res://.godot/imported/square_sand_roadC.obj-b825cef41a5f9a64c919808c062f76af.mesh"
+
+[deps]
+
+files=["res://.godot/imported/square_sand_roadC.obj-b825cef41a5f9a64c919808c062f76af.mesh"]
+
+source_file="res://Assets/Models/obj/square_sand_roadC.obj"
+dest_files=["res://.godot/imported/square_sand_roadC.obj-b825cef41a5f9a64c919808c062f76af.mesh", "res://.godot/imported/square_sand_roadC.obj-b825cef41a5f9a64c919808c062f76af.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

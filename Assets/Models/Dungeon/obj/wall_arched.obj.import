@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b8ju0m2mies6m"
+path="res://.godot/imported/wall_arched.obj-e11e5928b19e733841f5c9b8f6bce5c5.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wall_arched.obj-e11e5928b19e733841f5c9b8f6bce5c5.mesh"]
+
+source_file="res://Assets/Models/Dungeon/obj/wall_arched.obj"
+dest_files=["res://.godot/imported/wall_arched.obj-e11e5928b19e733841f5c9b8f6bce5c5.mesh", "res://.godot/imported/wall_arched.obj-e11e5928b19e733841f5c9b8f6bce5c5.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

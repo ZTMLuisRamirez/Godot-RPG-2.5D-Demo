@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dq8elaav0yg5b"
+path="res://.godot/imported/floor_dirt_small_weeds.obj-11a5f4f0690c4e5d25d5a972cb353811.mesh"
+
+[deps]
+
+files=["res://.godot/imported/floor_dirt_small_weeds.obj-11a5f4f0690c4e5d25d5a972cb353811.mesh"]
+
+source_file="res://Assets/Models/Dungeon/obj/floor_dirt_small_weeds.obj"
+dest_files=["res://.godot/imported/floor_dirt_small_weeds.obj-11a5f4f0690c4e5d25d5a972cb353811.mesh", "res://.godot/imported/floor_dirt_small_weeds.obj-11a5f4f0690c4e5d25d5a972cb353811.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

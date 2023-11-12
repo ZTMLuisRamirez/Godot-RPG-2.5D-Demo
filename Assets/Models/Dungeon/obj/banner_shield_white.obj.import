@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ls46e2q70udi"
+path="res://.godot/imported/banner_shield_white.obj-ac3724bedc15d3620638a2ae9cd1b98c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/banner_shield_white.obj-ac3724bedc15d3620638a2ae9cd1b98c.mesh"]
+
+source_file="res://Assets/Models/Dungeon/obj/banner_shield_white.obj"
+dest_files=["res://.godot/imported/banner_shield_white.obj-ac3724bedc15d3620638a2ae9cd1b98c.mesh", "res://.godot/imported/banner_shield_white.obj-ac3724bedc15d3620638a2ae9cd1b98c.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

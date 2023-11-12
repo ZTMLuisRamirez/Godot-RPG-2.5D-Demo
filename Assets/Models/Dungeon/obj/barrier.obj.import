@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cji1wi54j7i5h"
+path="res://.godot/imported/barrier.obj-cccc089e77f2a80382dc21df61930e8a.mesh"
+
+[deps]
+
+files=["res://.godot/imported/barrier.obj-cccc089e77f2a80382dc21df61930e8a.mesh"]
+
+source_file="res://Assets/Models/Dungeon/obj/barrier.obj"
+dest_files=["res://.godot/imported/barrier.obj-cccc089e77f2a80382dc21df61930e8a.mesh", "res://.godot/imported/barrier.obj-cccc089e77f2a80382dc21df61930e8a.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

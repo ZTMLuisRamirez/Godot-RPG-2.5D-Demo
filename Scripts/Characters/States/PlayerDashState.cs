@@ -9,6 +9,20 @@ public partial class PlayerDashState : PlayerState
 	[Export] private float speed = 10f;
 	private bool isMoving = false;
 	private Vector3 direction;
+	private Timer dashTimerNode;
+	private Timer cooldownTimerNode;
+
+	public override void _Ready()
+	{
+		base._Ready();
+
+		dashTimerNode = GetNode<Timer>("DashTimer");
+		cooldownTimerNode = GetNode<Timer>("CooldownTimer");
+
+		dashTimerNode.Timeout += HandleDashTimeout;
+
+		CanTransition = () => cooldownTimerNode.IsStopped();
+	}
 
 	public override void EnterState()
 	{
@@ -20,23 +34,18 @@ public partial class PlayerDashState : PlayerState
 		// }
 
 		animPlayerNode.Play(Constants.DASH_ANIM);
-
-		// StartCoroutine(ability.RunCooldown());
+		dashTimerNode.Start();
 	}
 
-	public override void ExitState()
+	public override void _PhysicsProcess(double delta)
 	{
-		base.ExitState();
-
-		isMoving = false;
+		characterBodyNode.Velocity = direction * speed;
+		characterBodyNode.MoveAndSlide();
+		Flip();
 	}
 
-	public override void _Process(double delta)
+	private void BeginDashMovement()
 	{
-		base._Process(delta);
-
-		if (!isMoving) return;
-
 		var vector2Direction = GetMoveInput();
 		direction = new(vector2Direction.X, 0, vector2Direction.Y);
 
@@ -44,36 +53,14 @@ public partial class PlayerDashState : PlayerState
 		{
 			direction = GetFacingDirection();
 		}
-
-		characterBodyNode.Velocity = direction * (float)(speed * delta);
-		characterBodyNode.MoveAndSlide();
 	}
 
-	private void BeginDashMovement()
+	private void HandleDashTimeout()
 	{
-		isMoving = true;
+		cooldownTimerNode.Start();
+
+		characterBodyNode.Velocity = Vector3.Zero;
+		direction = Vector3.Zero;
+		stateMachineNode.SwitchState(State.Idle);
 	}
-
-	// private float newSpeed;
-	// private float timer = 0;
-	// private Vector3 direction;
-	// private bool isReadyToMove = false;
-	// private DashAbility ability;
-
-	// private void Update()
-	// {
-	// 	timer += Time.deltaTime;
-
-	// 	if (timer > ability.duration)
-	// 	{
-	// 		stateController.SwitchState(stateController.idleState);
-	// 	}
-	// }
-
-	// private void OnDisable()
-	// {
-	// 	timer = 0;
-	// 	animatorComp.SetBool(Constants.IS_DASHING_PARAM, false);
-	// 	direction = Vector3.zero;
-	// }
 }

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://nwberamrol2d"
+path="res://.godot/imported/bottle_B_brown.obj-6935dee9c54baae3273893e312cc1ab6.mesh"
+
+[deps]
+
+files=["res://.godot/imported/bottle_B_brown.obj-6935dee9c54baae3273893e312cc1ab6.mesh"]
+
+source_file="res://Assets/Models/Dungeon/obj/bottle_B_brown.obj"
+dest_files=["res://.godot/imported/bottle_B_brown.obj-6935dee9c54baae3273893e312cc1ab6.mesh", "res://.godot/imported/bottle_B_brown.obj-6935dee9c54baae3273893e312cc1ab6.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

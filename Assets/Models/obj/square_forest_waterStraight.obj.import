@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://78p4mun5ghao"
+path="res://.godot/imported/square_forest_waterStraight.obj-d5a733b9fb3ccea281d183e47a50dabd.mesh"
+
+[deps]
+
+files=["res://.godot/imported/square_forest_waterStraight.obj-d5a733b9fb3ccea281d183e47a50dabd.mesh"]
+
+source_file="res://Assets/Models/obj/square_forest_waterStraight.obj"
+dest_files=["res://.godot/imported/square_forest_waterStraight.obj-d5a733b9fb3ccea281d183e47a50dabd.mesh", "res://.godot/imported/square_forest_waterStraight.obj-d5a733b9fb3ccea281d183e47a50dabd.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

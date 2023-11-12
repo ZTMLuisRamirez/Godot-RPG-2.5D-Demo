@@ -23,7 +23,7 @@ public partial class PlayerAttackState : PlayerState
 		comboTimerNode.Timeout += HandleTimeout;
 	}
 
-	public override void _Process(double delta)
+	public override void _PhysicsProcess(double delta)
 	{
 		var direction = GetFacingDirection();
 		characterBodyNode.Velocity = direction * (float)(delta * moveDistance);

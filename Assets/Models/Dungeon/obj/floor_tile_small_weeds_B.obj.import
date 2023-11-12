@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bfx6viewnufgs"
+path="res://.godot/imported/floor_tile_small_weeds_B.obj-8d89de9f3aef5137e2fd3ece9700e683.mesh"
+
+[deps]
+
+files=["res://.godot/imported/floor_tile_small_weeds_B.obj-8d89de9f3aef5137e2fd3ece9700e683.mesh"]
+
+source_file="res://Assets/Models/Dungeon/obj/floor_tile_small_weeds_B.obj"
+dest_files=["res://.godot/imported/floor_tile_small_weeds_B.obj-8d89de9f3aef5137e2fd3ece9700e683.mesh", "res://.godot/imported/floor_tile_small_weeds_B.obj-8d89de9f3aef5137e2fd3ece9700e683.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

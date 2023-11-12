@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dp87boika3x47"
+path="res://.godot/imported/banner_thin_white.obj-1b9065a213a8dbe42c8a87ecedb319ec.mesh"
+
+[deps]
+
+files=["res://.godot/imported/banner_thin_white.obj-1b9065a213a8dbe42c8a87ecedb319ec.mesh"]
+
+source_file="res://Assets/Models/Dungeon/obj/banner_thin_white.obj"
+dest_files=["res://.godot/imported/banner_thin_white.obj-1b9065a213a8dbe42c8a87ecedb319ec.mesh", "res://.godot/imported/banner_thin_white.obj-1b9065a213a8dbe42c8a87ecedb319ec.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dx40p6bpcentk"
+path="res://.godot/imported/square_water.obj-e8c4c79c05da0c3925c98bb1f1908666.mesh"
+
+[deps]
+
+files=["res://.godot/imported/square_water.obj-e8c4c79c05da0c3925c98bb1f1908666.mesh"]
+
+source_file="res://Assets/Models/obj/square_water.obj"
+dest_files=["res://.godot/imported/square_water.obj-e8c4c79c05da0c3925c98bb1f1908666.mesh", "res://.godot/imported/square_water.obj-e8c4c79c05da0c3925c98bb1f1908666.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

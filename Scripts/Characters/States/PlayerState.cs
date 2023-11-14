@@ -8,16 +8,16 @@ public abstract partial class PlayerState : CharacterState
     protected Vector2 GetMoveInput()
     {
         return Input.GetVector(
-            Constants.INPUT_MOVE_LEFT,
-            Constants.INPUT_MOVE_RIGHT,
-            Constants.INPUT_MOVE_FORWARD,
-            Constants.INPUT_MOVE_BACKWARD
+            GameConstants.INPUT_MOVE_LEFT,
+            GameConstants.INPUT_MOVE_RIGHT,
+            GameConstants.INPUT_MOVE_FORWARD,
+            GameConstants.INPUT_MOVE_BACKWARD
         );
     }
 
     protected void CheckForAttackState()
     {
-        if (Input.IsActionJustPressed(Constants.INPUT_ATTACK))
+        if (Input.IsActionJustPressed(GameConstants.INPUT_ATTACK))
         {
             stateMachineNode.SwitchState(State.Attack);
         }
@@ -25,7 +25,7 @@ public abstract partial class PlayerState : CharacterState
 
     protected void CheckForDashState()
     {
-        if (Input.IsActionJustPressed(Constants.INPUT_DASH))
+        if (Input.IsActionJustPressed(GameConstants.INPUT_DASH))
         {
             stateMachineNode.SwitchState(State.Dash);
         }

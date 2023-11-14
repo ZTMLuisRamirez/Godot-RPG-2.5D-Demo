@@ -10,16 +10,18 @@ public partial class EnemyMushroomIdleState : EnemyState
 
 	public override void EnterState()
 	{
-		animPlayerNode.Play(Constants.IDLE_ANIM);
+		base.EnterState();
+
+		animPlayerNode.Play(GameConstants.IDLE_ANIM);
 	}
 
 	public override void _Process(double delta)
 	{
-		// if (transform.position != originalPosition)
-		// {
-		//     stateController.SwitchState(stateController.returnState);
-		//     return;
-		// }
+		if (characterBodyNode.GlobalPosition.DistanceTo(initialPathPosition) > 1.2f)
+		{
+			stateMachineNode.SwitchState(State.Return);
+			return;
+		}
 
 		// if (IsWithinStateRange(stateController.chaseState))
 		// {

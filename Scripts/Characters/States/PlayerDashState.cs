@@ -33,7 +33,7 @@ public partial class PlayerDashState : PlayerState
 		// 	ability = abilityController.GetAbility<DashAbility>();
 		// }
 
-		animPlayerNode.Play(Constants.DASH_ANIM);
+		animPlayerNode.Play(GameConstants.DASH_ANIM);
 		dashTimerNode.Start();
 	}
 

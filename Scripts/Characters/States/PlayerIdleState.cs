@@ -11,7 +11,7 @@ public partial class PlayerIdleState : PlayerState
     {
         base.EnterState();
 
-        animPlayerNode.Play(Constants.IDLE_ANIM);
+        animPlayerNode.Play(GameConstants.IDLE_ANIM);
     }
 
     public override void _Process(double delta)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dcgiukagadlup"]
+[gd_scene load_steps=18 format=3 uid="uid://dcgiukagadlup"]
 
 [ext_resource type="Texture2D" uid="uid://dx4tdi36hvogf" path="res://Assets/Sprites/Characters/EnemyMushroom/Idle.png" id="1_1rtej"]
 [ext_resource type="Texture2D" uid="uid://bo1qfokwjbeqg" path="res://Assets/Sprites/Characters/EnemyMushroom/Attack2.png" id="2_7qkpu"]
@@ -7,6 +7,88 @@
 [ext_resource type="Texture2D" uid="uid://b38o5kril5ddd" path="res://Assets/Sprites/Characters/EnemyMushroom/Take Hit.png" id="5_okvbl"]
 [ext_resource type="PackedScene" uid="uid://u54fa43bsuid" path="res://Scenes/Characters/character_state_machine.tscn" id="6_anl2t"]
 [ext_resource type="PackedScene" uid="uid://bqswetojya55o" path="res://Scenes/Characters/States/enemy_mushroom_idle_state.tscn" id="7_koi1t"]
+[ext_resource type="PackedScene" uid="uid://viqlrknl0vcv" path="res://Scenes/Characters/States/enemy_mushroom_return_state.tscn" id="8_yjl6h"]
+[ext_resource type="PackedScene" uid="uid://2315iousjww3" path="res://Scenes/Characters/States/enemy_mushroom_patrol_state.tscn" id="9_5flmd"]
+
+[sub_resource type="Animation" id="Animation_w4db0"]
+resource_name = "Attack"
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_7qkpu")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite3D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite3D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_mn8j2"]
+resource_name = "Death"
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_bpoy0")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite3D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite3D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
 
 [sub_resource type="Animation" id="Animation_dcism"]
 resource_name = "Idle"
@@ -130,86 +212,6 @@ tracks/2/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
 }
 
-[sub_resource type="Animation" id="Animation_w4db0"]
-resource_name = "Attack"
-step = 0.125
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_7qkpu")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite3D:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [8]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite3D:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7]
-}
-
-[sub_resource type="Animation" id="Animation_mn8j2"]
-resource_name = "Death"
-step = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_bpoy0")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite3D:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite3D:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
-
 [sub_resource type="Animation" id="Animation_4x8cf"]
 resource_name = "TakeHit"
 step = 0.25
@@ -282,6 +284,16 @@ libraries = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0381221, -0.0345682, 0)
 shape = SubResource("CapsuleShape3D_o0fbf")
 
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+avoidance_enabled = true
+
 [node name="CharacterStateMachine" parent="." instance=ExtResource("6_anl2t")]
 
 [node name="EnemyMushroomIdleState" parent="CharacterStateMachine" instance=ExtResource("7_koi1t")]
+process_mode = 4
+
+[node name="EnemyMushroomReturnState" parent="CharacterStateMachine" instance=ExtResource("8_yjl6h")]
+process_mode = 4
+
+[node name="EnemyMushroomPatrolState" parent="CharacterStateMachine" instance=ExtResource("9_5flmd")]
+process_mode = 4

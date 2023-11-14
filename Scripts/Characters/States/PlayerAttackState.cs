@@ -34,7 +34,7 @@ public partial class PlayerAttackState : PlayerState
 	{
 		base.EnterState();
 
-		animPlayerNode.Play($"{Constants.ATTACK_ANIM}{comboCounter}");
+		animPlayerNode.Play($"{GameConstants.ATTACK_ANIM}{comboCounter}");
 
 		animPlayerNode.AnimationFinished += HandleAnimationFinished;
 	}

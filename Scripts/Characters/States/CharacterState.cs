@@ -10,8 +10,6 @@ public abstract partial class CharacterState : Node
     protected CharacterStateMachine stateMachineNode;
     protected Sprite3D sprite3DNode;
     protected AnimationPlayer animPlayerNode;
-    protected Area3D hitboxNode;
-    protected CollisionShape3D hitboxShapeNode;
 
     public Func<bool> CanTransition = () => true;
 
@@ -21,10 +19,6 @@ public abstract partial class CharacterState : Node
         stateMachineNode = GetParent<CharacterStateMachine>();
         sprite3DNode = characterNode.GetNode<Sprite3D>("Sprite3D");
         animPlayerNode = sprite3DNode.GetNode<AnimationPlayer>("AnimationPlayer");
-        hitboxNode = characterNode.GetNode<Area3D>("Hitbox");
-        hitboxShapeNode = hitboxNode.GetNode<CollisionShape3D>("CollisionShape3D");
-
-        hitboxShapeNode.Disabled = true;
     }
 
     public virtual void EnterState()

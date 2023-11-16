@@ -47,11 +47,4 @@ public partial class CharacterStateMachine : Node
 		currentState = states[newState];
 		currentState.EnterState();
 	}
-
-	// public bool IsCurrentState(string stateToCheck)
-	// {
-	// 	Enum.TryParse<State>(stateToCheck, true, out State result);
-
-	// 	return currentState.StateType == result;
-	// }
 }

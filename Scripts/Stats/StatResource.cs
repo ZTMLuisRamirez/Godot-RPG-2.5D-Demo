@@ -34,22 +34,4 @@ public partial class StatResource : Resource
             }
         }
     }
-
-    // public float GetRawStat(Stat stat) => currentStats[stat];
-
-    // public float GetModifiedStat(Stat stat)
-    // {
-    //     if (!currentStats.ContainsKey(stat)) return 0;
-
-    //     var value = currentStats[stat];
-
-    //     if (modifiers.ContainsKey(stat))
-    //     {
-    //         value += modifiers[stat];
-    //     }
-
-    //     value = Mathf.Clamp(value, 0, Mathf.Infinity);
-
-    //     return value;
-    // }
 }

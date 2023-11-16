@@ -12,6 +12,8 @@ public abstract partial class EnemyState : CharacterState
     protected Path3D pathNode;
     protected Area3D chaseAreaNode;
     protected Area3D attackAreaNode;
+    protected Area3D hitboxNode;
+    protected CollisionShape3D hitboxShapeNode;
 
     protected bool isPlayerDetected = false;
 
@@ -23,6 +25,10 @@ public abstract partial class EnemyState : CharacterState
         pathNode = characterNode.GetParent<Path3D>();
         chaseAreaNode = characterNode.GetNode<Area3D>("ChaseArea");
         attackAreaNode = characterNode.GetNode<Area3D>("AttackArea");
+        hitboxNode = characterNode.GetNode<Area3D>("Hitbox");
+        hitboxShapeNode = hitboxNode.GetNode<CollisionShape3D>("CollisionShape3D");
+
+        hitboxShapeNode.Disabled = true;
 
         var startingPointPosition = pathNode.Curve.GetPointPosition(0);
         initialPathPosition = startingPointPosition + pathNode.GlobalPosition;

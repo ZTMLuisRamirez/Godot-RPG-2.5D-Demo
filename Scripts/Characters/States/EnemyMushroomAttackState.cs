@@ -56,5 +56,4 @@ public partial class EnemyMushroomAttackState : EnemyState
 
 		animPlayerNode.Play(GameConstants.ATTACK_ANIM);
 	}
-
 }

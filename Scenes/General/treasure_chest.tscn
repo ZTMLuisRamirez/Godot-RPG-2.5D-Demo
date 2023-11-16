@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dp00e8r1a27ku"]
+
+[ext_resource type="PackedScene" uid="uid://bnx2mdiapjpoc" path="res://Scenes/General/interaction_icon.tscn" id="1_7jjrk"]
+[ext_resource type="Texture2D" uid="uid://c457ghv85anln" path="res://Assets/Sprites/General/16x16.png" id="2_6ok3o"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w7oo4"]
+size = Vector3(0.203477, 0.1799, 0.141572)
+
+[node name="TreasureChest" type="StaticBody3D"]
+collision_layer = 8
+collision_mask = 0
+
+[node name="InteractionIcon" parent="." instance=ExtResource("1_7jjrk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0254672, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture_filter = 0
+texture = ExtResource("2_6ok3o")
+region_enabled = true
+region_rect = Rect2(16, 7, 16, 23)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_w7oo4")

@@ -8,4 +8,3 @@ public partial class GameConstants
     public static readonly string DASH_ANIM = "Dash";
     public static readonly string DEATH_ANIM = "Death";
 }
-

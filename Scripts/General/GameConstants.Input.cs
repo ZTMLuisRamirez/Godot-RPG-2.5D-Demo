@@ -8,5 +8,5 @@ public partial class GameConstants
     public static readonly string INPUT_MOVE_BACKWARD = "MoveBackward";
     public static readonly string INPUT_ATTACK = "Attack";
     public static readonly string INPUT_DASH = "Dash";
+    public static readonly string INPUT_INTERACT = "Interact";
 }
-

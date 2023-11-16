@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnx2mdiapjpoc"]
+
+[ext_resource type="Script" path="res://Scripts/General/InteractionIcon.cs" id="1_n2dlt"]
+[ext_resource type="Texture2D" uid="uid://2p1nxyuq21rb" path="res://Assets/Sprites/UI/Keyboard Letters and Symbols.png" id="2_bnc4s"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ruyqs"]
+radius = 0.25
+
+[node name="InteractionIcon" type="Area3D"]
+collision_layer = 0
+script = ExtResource("1_n2dlt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_ruyqs")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+visible = false
+texture_filter = 0
+texture = ExtResource("2_bnc4s")
+hframes = 8
+vframes = 14
+frame = 20

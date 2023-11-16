@@ -19,16 +19,16 @@ public partial class PlayerMoveState : PlayerState
 	{
 		var direction2d = GetMoveInput();
 
-		characterBodyNode.Velocity = new(direction2d.X, 0, direction2d.Y);
-		characterBodyNode.Velocity *= speed;
+		characterNode.Velocity = new(direction2d.X, 0, direction2d.Y);
+		characterNode.Velocity *= speed;
 
-		if (characterBodyNode.Velocity == Vector3.Zero)
+		if (characterNode.Velocity == Vector3.Zero)
 		{
 			stateMachineNode.SwitchState(State.Idle);
 			return;
 		}
 
-		characterBodyNode.MoveAndSlide();
+		characterNode.MoveAndSlide();
 
 		Flip();
 	}

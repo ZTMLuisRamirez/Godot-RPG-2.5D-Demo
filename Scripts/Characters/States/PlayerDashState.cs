@@ -39,8 +39,8 @@ public partial class PlayerDashState : PlayerState
 
 	public override void _PhysicsProcess(double delta)
 	{
-		characterBodyNode.Velocity = direction * speed;
-		characterBodyNode.MoveAndSlide();
+		characterNode.Velocity = direction * speed;
+		characterNode.MoveAndSlide();
 		Flip();
 	}
 
@@ -59,7 +59,7 @@ public partial class PlayerDashState : PlayerState
 	{
 		cooldownTimerNode.Start();
 
-		characterBodyNode.Velocity = Vector3.Zero;
+		characterNode.Velocity = Vector3.Zero;
 		direction = Vector3.Zero;
 		stateMachineNode.SwitchState(State.Idle);
 	}

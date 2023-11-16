@@ -26,8 +26,8 @@ public partial class PlayerAttackState : PlayerState
 	public override void _PhysicsProcess(double delta)
 	{
 		var direction = GetFacingDirection();
-		characterBodyNode.Velocity = direction * (float)(delta * moveDistance);
-		characterBodyNode.MoveAndSlide();
+		characterNode.Velocity = direction * (float)(delta * moveDistance);
+		characterNode.MoveAndSlide();
 	}
 
 	public override void EnterState()
@@ -50,6 +50,7 @@ public partial class PlayerAttackState : PlayerState
 
 	private void HandleAnimationFinished(StringName animName)
 	{
+		hitboxShapeNode.Disabled = true;
 		comboCounter++;
 
 		if (comboCounter > 4)
@@ -63,5 +64,16 @@ public partial class PlayerAttackState : PlayerState
 	private void HandleTimeout()
 	{
 		comboCounter = 1;
+	}
+
+	private void PerformHit()
+	{
+		hitboxShapeNode.Disabled = false;
+
+		var newPosition = sprite3DNode.FlipH ? Vector3.Left : Vector3.Right;
+		var halfMultiplier = 0.5f;
+		newPosition *= halfMultiplier;
+
+		hitboxNode.Position = newPosition;
 	}
 }

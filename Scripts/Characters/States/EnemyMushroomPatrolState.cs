@@ -21,8 +21,6 @@ public partial class EnemyMushroomPatrolState : EnemyState
 		idleTimerNode = GetNode<Timer>("Timer");
 
 		points = pathNode.Curve.GetBakedPoints();
-		agentNode.NavigationFinished += HandleNavigationFinished;
-		agentNode.VelocityComputed += HandleVelocityComputed;
 		idleTimerNode.Timeout += HandleTimeout;
 	}
 
@@ -30,8 +28,22 @@ public partial class EnemyMushroomPatrolState : EnemyState
 	{
 		base.EnterState();
 
+		pointIndex = 0;
 		agentNode.TargetPosition = GetPointGlobalPosition();
 		animPlayerNode.Play(GameConstants.IDLE_ANIM);
+
+		chaseAreaNode.BodyEntered += HandleChaseAreaBodyEntered;
+		agentNode.NavigationFinished += HandleNavigationFinished;
+		agentNode.VelocityComputed += HandleVelocityComputed;
+	}
+
+	public override void ExitState()
+	{
+		base.ExitState();
+
+		chaseAreaNode.BodyEntered -= HandleChaseAreaBodyEntered;
+		agentNode.NavigationFinished -= HandleNavigationFinished;
+		agentNode.VelocityComputed -= HandleVelocityComputed;
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -48,8 +60,8 @@ public partial class EnemyMushroomPatrolState : EnemyState
 
 	private void HandleVelocityComputed(Vector3 safeVelocity)
 	{
-		characterBodyNode.Velocity = safeVelocity;
-		characterBodyNode.MoveAndSlide();
+		characterNode.Velocity = safeVelocity;
+		characterNode.MoveAndSlide();
 
 		Flip();
 	}

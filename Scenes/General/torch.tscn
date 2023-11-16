@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://s3eq3ruprqmh"]
+
+[ext_resource type="ArrayMesh" uid="uid://gixs6j5keqxg" path="res://Assets/Models/Dungeon/obj/torch_mounted.obj" id="1_hkb3t"]
+[ext_resource type="Texture2D" uid="uid://b3hk5yr0rlukr" path="res://Assets/Models/Dungeon/texture/dungeon_texture.png" id="2_vohu3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_07atg"]
+albedo_texture = ExtResource("2_vohu3")
+
+[sub_resource type="Gradient" id="Gradient_aojig"]
+colors = PackedColorArray(0.920592, 0.258144, 0.264298, 1, 0.663651, 0.439908, 0.183303, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1oq7i"]
+gradient = SubResource("Gradient_aojig")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nkuqo"]
+lifetime_randomness = 1.0
+emission_shape = 3
+emission_box_extents = Vector3(0.05, 0.05, 0.05)
+direction = Vector3(0, 1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 0.5
+initial_velocity_max = 1.0
+tangential_accel_min = 0.5
+tangential_accel_max = 1.0
+scale_min = 0.5
+color_ramp = SubResource("GradientTexture1D_1oq7i")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0nha5"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 1, 1, 0.458824)
+
+[sub_resource type="SphereMesh" id="SphereMesh_hnxbq"]
+material = SubResource("StandardMaterial3D_0nha5")
+radius = 0.1
+height = 0.2
+
+[node name="MeshInstance3D" type="MeshInstance3D"]
+mesh = ExtResource("1_hkb3t")
+surface_material_override/0 = SubResource("StandardMaterial3D_07atg")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.507589, 0.345416)
+amount = 60
+process_material = SubResource("ParticleProcessMaterial_nkuqo")
+draw_pass_1 = SubResource("SphereMesh_hnxbq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0126703, 0.559638, 0.298135)
+light_color = Color(0.85098, 0.486275, 0.262745, 1)
+light_energy = 5.0

@@ -1,10 +1,33 @@
 using Godot;
 using RPG.General;
+using RPG.Stats;
 
 namespace RPG.Characters.States;
 
 public abstract partial class PlayerState : CharacterState
 {
+    public override void EnterState()
+    {
+        base.EnterState();
+
+        if (StateType != State.Death)
+        {
+            characterNode.GetStatResource(Stat.Health)
+                .OnZeroOrNegative += HandleDeath;
+        }
+    }
+
+    public override void ExitState()
+    {
+        base.ExitState();
+
+        if (StateType != State.Death)
+        {
+            characterNode.GetStatResource(Stat.Health)
+                .OnZeroOrNegative -= HandleDeath;
+        }
+    }
+
     protected Vector2 GetMoveInput()
     {
         return Input.GetVector(
@@ -34,5 +57,10 @@ public abstract partial class PlayerState : CharacterState
     protected Vector3 GetFacingDirection()
     {
         return sprite3DNode.FlipH ? Vector3.Left : Vector3.Right;
+    }
+
+    private void HandleDeath()
+    {
+        stateMachineNode.SwitchState(State.Death);
     }
 }

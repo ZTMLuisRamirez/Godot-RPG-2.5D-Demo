@@ -13,24 +13,22 @@ public partial class EnemyMushroomIdleState : EnemyState
 		base.EnterState();
 
 		animPlayerNode.Play(GameConstants.IDLE_ANIM);
+		chaseAreaNode.BodyEntered += HandleChaseAreaBodyEntered;
+	}
+
+	public override void ExitState()
+	{
+		base.ExitState();
+
+		chaseAreaNode.BodyEntered -= HandleChaseAreaBodyEntered;
 	}
 
 	public override void _Process(double delta)
 	{
-		if (characterBodyNode.GlobalPosition.DistanceTo(initialPathPosition) > 1.2f)
+		if (characterNode.GlobalPosition.DistanceTo(initialPathPosition) > 1.2f)
 		{
 			stateMachineNode.SwitchState(State.Return);
 			return;
 		}
-
-		// if (IsWithinStateRange(stateController.chaseState))
-		// {
-		//     stateController.SwitchState(stateController.chaseState);
-		// }
 	}
-
-	// private void OnDisable()
-	// {
-	//     animatorComp.SetBool(Constants.IS_IDLE_PARAM, false);
-	// }
 }

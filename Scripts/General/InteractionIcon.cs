@@ -3,6 +3,8 @@ using RPG.General;
 
 public partial class InteractionIcon : Area3D
 {
+	[Signal] public delegate void InteractedEventHandler();
+
 	private Sprite3D spriteNode;
 
 	// Called when the node enters the scene tree for the first time.
@@ -20,6 +22,6 @@ public partial class InteractionIcon : Area3D
 
 		if (!Input.IsActionJustPressed(GameConstants.INPUT_INTERACT)) return;
 
-		GD.Print("Starting Interaction");
+		EmitSignal(SignalName.Interacted);
 	}
 }

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=2 format=3 uid="uid://ffnmv7wfqnc7"]
+
+[ext_resource type="Script" path="res://Scripts/Inventory/ItemResource.cs" id="1_ylb25"]
+
+[resource]
+script = ExtResource("1_ylb25")
+SpriteTexture = ""

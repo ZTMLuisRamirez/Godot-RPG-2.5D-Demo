@@ -9,4 +9,5 @@ public partial class GameConstants
     public static readonly string INPUT_ATTACK = "Attack";
     public static readonly string INPUT_DASH = "Dash";
     public static readonly string INPUT_INTERACT = "Interact";
+    public static readonly string INPUT_PAUSE = "Pause";
 }

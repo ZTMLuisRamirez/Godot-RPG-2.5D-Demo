@@ -43,6 +43,7 @@ mesh = ExtResource("1_hkb3t")
 surface_material_override/0 = SubResource("StandardMaterial3D_07atg")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+process_mode = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.507589, 0.345416)
 amount = 60
 process_material = SubResource("ParticleProcessMaterial_nkuqo")

@@ -14,7 +14,8 @@ public enum Stat
 [GlobalClass]
 public partial class StatResource : Resource
 {
-    public event Action OnZeroOrNegative = () => { };
+    public event Action OnZeroOrNegative;
+    public event Action<float> OnUpdate;
 
     [Export] public Stat StatType { get; set; }
 
@@ -27,9 +28,11 @@ public partial class StatResource : Resource
         {
             _statValue = value;
 
+            OnUpdate?.Invoke(_statValue);
+
             if (_statValue <= 0)
             {
-                OnZeroOrNegative.Invoke();
+                OnZeroOrNegative?.Invoke();
             }
         }
     }

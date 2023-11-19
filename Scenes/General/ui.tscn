@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://blyl84v3kerqe"]
+[gd_scene load_steps=25 format=3 uid="uid://blyl84v3kerqe"]
 
 [ext_resource type="Texture2D" uid="uid://dnsak0kywvosg" path="res://Assets/Sprites/UI/UI Element 2.png" id="1_254kn"]
 [ext_resource type="Script" path="res://Scripts/UI/UIController.cs" id="1_ev85s"]
@@ -10,9 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://3t5mo50m7oen" path="res://Assets/Sprites/UI/UI Element 9.png" id="6_1bih8"]
 [ext_resource type="Texture2D" uid="uid://cw3m4tc8l7mvg" path="res://Assets/Sprites/UI/UI Element 10.png" id="7_f5s0w"]
 [ext_resource type="Texture2D" uid="uid://yakmlffjq4dn" path="res://Assets/Sprites/UI/UI Element 5.png" id="8_64drs"]
-[ext_resource type="Texture2D" uid="uid://bipcvykoalpux" path="res://Assets/Sprites/UI/UI Element 5_1.png" id="9_mraky"]
 [ext_resource type="Texture2D" uid="uid://cjddtuwfk57jc" path="res://Assets/Sprites/UI/UI Element 5_2.png" id="10_i2f4d"]
 [ext_resource type="Texture2D" uid="uid://c2y7dd04l8sny" path="res://Assets/Sprites/UI/UI Element 5_3.png" id="11_804p2"]
+[ext_resource type="Script" path="res://Scripts/UI/StatLabel.cs" id="11_hls6o"]
+[ext_resource type="Resource" uid="uid://6gidf6gvpmta" path="res://Scenes/Characters/player_health_stat.tres" id="12_x7cti"]
+[ext_resource type="Resource" uid="uid://x2amu5p3py4" path="res://Scenes/Characters/player_strength_stat.tres" id="14_c53vc"]
+[ext_resource type="Script" path="res://Scripts/UI/EnemyCountLabel.cs" id="16_tsc8a"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8p0g2"]
 texture = ExtResource("1_254kn")
@@ -243,7 +246,7 @@ horizontal_alignment = 1
 visible = false
 layout_mode = 1
 offset_right = 250.0
-offset_bottom = 250.0
+offset_bottom = 215.0
 theme_override_constants/margin_left = 42
 theme_override_constants/margin_top = 42
 
@@ -283,26 +286,8 @@ theme_override_fonts/font = ExtResource("2_84c7l")
 theme_override_font_sizes/font_size = 36
 text = "100"
 horizontal_alignment = 1
-
-[node name="PotionContainer" type="HBoxContainer" parent="Stats/Panel/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 12
-
-[node name="TextureRect" type="TextureRect" parent="Stats/Panel/MarginContainer/VBoxContainer/PotionContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("9_mraky")
-
-[node name="Label" type="Label" parent="Stats/Panel/MarginContainer/VBoxContainer/PotionContainer"]
-layout_mode = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 8
-theme_override_fonts/font = ExtResource("2_84c7l")
-theme_override_font_sizes/font_size = 36
-text = "3
-"
-horizontal_alignment = 1
+script = ExtResource("11_hls6o")
+statResource = ExtResource("12_x7cti")
 
 [node name="StrengthContainer" type="HBoxContainer" parent="Stats/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -323,6 +308,8 @@ theme_override_font_sizes/font_size = 36
 text = "9
 "
 horizontal_alignment = 1
+script = ExtResource("11_hls6o")
+statResource = ExtResource("14_c53vc")
 
 [node name="MonsterCountContainer" type="HBoxContainer" parent="Stats/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -342,3 +329,46 @@ theme_override_fonts/font = ExtResource("2_84c7l")
 theme_override_font_sizes/font_size = 36
 text = "3/10"
 horizontal_alignment = 1
+script = ExtResource("16_tsc8a")
+
+[node name="Reward" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -125.0
+offset_right = 125.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 42
+theme_override_constants/margin_top = 42
+
+[node name="Panel" type="Panel" parent="Reward"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_fwojk")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Reward/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Reward/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="Reward/Panel/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_84c7l")
+theme_override_font_sizes/font_size = 42
+text = "Reward Text"
+horizontal_alignment = 1
+autowrap_mode = 2

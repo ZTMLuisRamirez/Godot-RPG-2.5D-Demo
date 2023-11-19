@@ -32,6 +32,8 @@ public partial class UIController : Control
 
 		startButton.Pressed += HandleStartPressed;
 		GameEvents.OnPauseToggled += HandlePauseToggled;
+		GameEvents.OnVictory += HandleVictory;
+		GameEvents.OnEndGame += HandleEndGame;
 
 		containers[UIContainer.Start].Visible = true;
 	}
@@ -60,5 +62,19 @@ public partial class UIController : Control
 		{
 			entry.Value.Visible = false;
 		}
+	}
+
+	private void HandleVictory()
+	{
+		HideContainers();
+
+		containers[UIContainer.Victory].Visible = true;
+	}
+
+	private void HandleEndGame()
+	{
+		HideContainers();
+
+		containers[UIContainer.Defeat].Visible = true;
 	}
 }

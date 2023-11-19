@@ -1,10 +1,11 @@
-[gd_scene load_steps=32 format=3 uid="uid://dupcd37r2l3p8"]
+[gd_scene load_steps=31 format=3 uid="uid://dupcd37r2l3p8"]
 
 [ext_resource type="Texture2D" uid="uid://63rvecswhgwg" path="res://Assets/Sprites/Characters/Player/Idle_KG_2.png" id="1_3gjlt"]
 [ext_resource type="Script" path="res://Scripts/Characters/Player.cs" id="1_agy2u"]
 [ext_resource type="Texture2D" uid="uid://c3eqrvhx1q87j" path="res://Assets/Sprites/Characters/Player/Walking_KG_2.png" id="1_h70fb"]
 [ext_resource type="Texture2D" uid="uid://cviyl0gi5fr3l" path="res://Assets/Sprites/Characters/Player/Attack_KG_1.png" id="2_8v3ad"]
-[ext_resource type="Script" path="res://Scripts/Stats/StatResource.cs" id="2_gihay"]
+[ext_resource type="Resource" uid="uid://6gidf6gvpmta" path="res://Scenes/Characters/player_health_stat.tres" id="2_dwlun"]
+[ext_resource type="Resource" uid="uid://x2amu5p3py4" path="res://Scenes/Characters/player_strength_stat.tres" id="3_5geoj"]
 [ext_resource type="Texture2D" uid="uid://dmgfiplon224q" path="res://Assets/Sprites/Characters/Player/Attack_KG_2.png" id="4_yht1f"]
 [ext_resource type="Texture2D" uid="uid://bmpr6fmh0uaaw" path="res://Assets/Sprites/Characters/Player/Attack_KG_3.png" id="5_iq88l"]
 [ext_resource type="Texture2D" uid="uid://u2mf7r2tsdn2" path="res://Assets/Sprites/Characters/Player/Attack_KG_4.png" id="6_gk5ng"]
@@ -18,16 +19,6 @@
 [ext_resource type="Shape3D" uid="uid://c2d7ohkjk0vk3" path="res://Scenes/Characters/player_shape.tres" id="10_xmcpq"]
 [ext_resource type="PackedScene" uid="uid://vtod8mygwk3c" path="res://Scenes/Characters/States/player_dash_state.tscn" id="13_ip43t"]
 [ext_resource type="PackedScene" uid="uid://b4sw6f2ghh7fx" path="res://Scenes/Characters/States/player_death_state.tscn" id="18_pja3f"]
-
-[sub_resource type="Resource" id="Resource_mtxdu"]
-script = ExtResource("2_gihay")
-StatType = 3
-StatValue = 100.0
-
-[sub_resource type="Resource" id="Resource_appw7"]
-script = ExtResource("2_gihay")
-StatType = 0
-StatValue = 10.0
 
 [sub_resource type="Animation" id="Animation_qne33"]
 resource_name = "Attack1"
@@ -483,7 +474,7 @@ size = Vector3(0.5, 0.5, 0.5)
 collision_mask = 15
 wall_min_slide_angle = 3.14159
 script = ExtResource("1_agy2u")
-stats = Array[Object]([SubResource("Resource_mtxdu"), SubResource("Resource_appw7")])
+stats = Array[Object]([ExtResource("2_dwlun"), ExtResource("3_5geoj")])
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 texture_filter = 0

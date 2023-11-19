@@ -6,5 +6,6 @@ public enum UIContainer
     Pause,
     Victory,
     Defeat,
-    Stats
+    Stats,
+    Reward
 }

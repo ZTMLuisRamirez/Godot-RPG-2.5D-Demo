@@ -19,6 +19,8 @@ public partial class EnemyMushroomDeathState : CharacterState
 
 	private void HandleAnimationFinished(StringName animName)
 	{
+		GameEvents.RaiseEnemyDefeated();
+
 		characterNode.QueueFree();
 	}
 }

@@ -1,5 +1,6 @@
 using Godot;
 using RPG.General;
+using RPG.Stats;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,17 +9,17 @@ namespace RPG.UI;
 
 public partial class UIController : Control
 {
-	private Dictionary<UIContainer, MarginContainer> containers = new();
+	private Dictionary<ContainerType, UIContainer> containers = new();
 	private Button startButton;
 
 	public override void _Ready()
 	{
 		containers = GetChildren()
-			.Where(child => child is MarginContainer)
-			.Cast<MarginContainer>()
+			.Where(child => child is UIContainer or MarginContainer)
+			.Cast<UIContainer>()
 			.ToDictionary(child =>
 			{
-				if (!Enum.TryParse(child.Name, true, out UIContainer result))
+				if (!Enum.TryParse(child.Name, true, out ContainerType result))
 				{
 					GD.PrintErr(
 						$"{child.Name} is not a valid container."
@@ -28,21 +29,22 @@ public partial class UIController : Control
 				return result;
 			});
 
-		startButton = containers[UIContainer.Start].FindChild("Button") as Button;
+		containers[ContainerType.Start].ButtonNode.Pressed += HandleStartPressed;
+		containers[ContainerType.Reward].ButtonNode.Pressed += HandleRewardPressed;
 
-		startButton.Pressed += HandleStartPressed;
 		GameEvents.OnPauseToggled += HandlePauseToggled;
 		GameEvents.OnVictory += HandleVictory;
 		GameEvents.OnEndGame += HandleEndGame;
+		GameEvents.OnBonus += HandleBonus;
 
-		containers[UIContainer.Start].Visible = true;
+		containers[ContainerType.Start].Visible = true;
 	}
 
 	private void HandlePauseToggled(bool isPaused)
 	{
 		HideContainers();
 
-		var visibleContainer = isPaused ? UIContainer.Pause : UIContainer.Stats;
+		var visibleContainer = isPaused ? ContainerType.Pause : ContainerType.Stats;
 
 		containers[visibleContainer].Visible = true;
 	}
@@ -51,7 +53,7 @@ public partial class UIController : Control
 	{
 		HideContainers();
 
-		containers[UIContainer.Stats].Visible = true;
+		containers[ContainerType.Stats].Visible = true;
 
 		GameEvents.RaiseStartGame();
 	}
@@ -68,13 +70,38 @@ public partial class UIController : Control
 	{
 		HideContainers();
 
-		containers[UIContainer.Victory].Visible = true;
+		containers[ContainerType.Victory].Visible = true;
 	}
 
 	private void HandleEndGame()
 	{
 		HideContainers();
 
-		containers[UIContainer.Defeat].Visible = true;
+		containers[ContainerType.Defeat].Visible = true;
+	}
+
+	private void HandleBonus(BonusResource resource)
+	{
+		HideContainers();
+
+		var container = containers[ContainerType.Reward];
+
+		container.TextureNode.Texture = resource.SpriteTexture;
+		container.LabelNode.Text = resource.Description;
+
+		container.Visible = true;
+
+		GetTree().Paused = true;
+	}
+
+	private void HandleRewardPressed()
+	{
+		HideContainers();
+
+		containers[ContainerType.Stats].Visible = true;
+
+		GetTree().Paused = false;
+
+		GameEvents.RaiseBonusClosed();
 	}
 }

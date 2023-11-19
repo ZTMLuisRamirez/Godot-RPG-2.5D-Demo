@@ -1,11 +1,10 @@
+using Godot;
+
 namespace RPG.UI;
 
-public enum UIContainer
+public partial class UIContainer : MarginContainer
 {
-    Start,
-    Pause,
-    Victory,
-    Defeat,
-    Stats,
-    Reward
+    [Export] public TextureRect TextureNode { get; private set; }
+    [Export] public Label LabelNode { get; private set; }
+    [Export] public Button ButtonNode { get; private set; }
 }

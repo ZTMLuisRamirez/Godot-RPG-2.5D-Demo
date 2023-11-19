@@ -1,8 +1,9 @@
-[gd_scene load_steps=25 format=3 uid="uid://blyl84v3kerqe"]
+[gd_scene load_steps=26 format=3 uid="uid://blyl84v3kerqe"]
 
 [ext_resource type="Texture2D" uid="uid://dnsak0kywvosg" path="res://Assets/Sprites/UI/UI Element 2.png" id="1_254kn"]
 [ext_resource type="Script" path="res://Scripts/UI/UIController.cs" id="1_ev85s"]
 [ext_resource type="Texture2D" uid="uid://deie4ogujr76k" path="res://Assets/Sprites/UI/UI Element 4.png" id="1_yyyqe"]
+[ext_resource type="Script" path="res://Scripts/UI/UIContainer.cs" id="2_8he1d"]
 [ext_resource type="FontFile" uid="uid://dtwm8joxaxsc1" path="res://Assets/PixelifySans-Regular.ttf" id="2_84c7l"]
 [ext_resource type="Texture2D" uid="uid://chyhih883xg0b" path="res://Assets/Sprites/UI/UI Element 3.png" id="3_omgcc"]
 [ext_resource type="Texture2D" uid="uid://cnijysm4mo3um" path="res://Assets/Sprites/UI/UI Element 11.png" id="4_xhp34"]
@@ -53,6 +54,7 @@ expand_margin_bottom = 58.0
 texture = ExtResource("1_yyyqe")
 
 [node name="UI" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -61,7 +63,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ev85s")
 
-[node name="Start" type="MarginContainer" parent="."]
+[node name="Start" type="MarginContainer" parent="." node_paths=PackedStringArray("ButtonNode")]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -77,6 +79,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 42
 theme_override_constants/margin_top = 42
+script = ExtResource("2_8he1d")
+ButtonNode = NodePath("Panel/HBoxContainer/Button")
 
 [node name="Panel" type="Panel" parent="Start"]
 layout_mode = 2
@@ -125,6 +129,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 42
 theme_override_constants/margin_top = 42
+script = ExtResource("2_8he1d")
 
 [node name="Panel" type="Panel" parent="Pause"]
 layout_mode = 2
@@ -172,6 +177,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 42
 theme_override_constants/margin_top = 42
+script = ExtResource("2_8he1d")
 
 [node name="Panel" type="Panel" parent="Victory"]
 layout_mode = 2
@@ -215,6 +221,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 42
 theme_override_constants/margin_top = 42
+script = ExtResource("2_8he1d")
 
 [node name="Panel" type="Panel" parent="Defeat"]
 layout_mode = 2
@@ -249,6 +256,7 @@ offset_right = 250.0
 offset_bottom = 215.0
 theme_override_constants/margin_left = 42
 theme_override_constants/margin_top = 42
+script = ExtResource("2_8he1d")
 
 [node name="Panel" type="Panel" parent="Stats"]
 layout_mode = 2
@@ -331,7 +339,7 @@ text = "3/10"
 horizontal_alignment = 1
 script = ExtResource("16_tsc8a")
 
-[node name="Reward" type="MarginContainer" parent="."]
+[node name="Reward" type="MarginContainer" parent="." node_paths=PackedStringArray("TextureNode", "LabelNode", "ButtonNode")]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -347,6 +355,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 42
 theme_override_constants/margin_top = 42
+script = ExtResource("2_8he1d")
+TextureNode = NodePath("Panel/HBoxContainer/TextureRect")
+LabelNode = NodePath("Panel/HBoxContainer/Label")
+ButtonNode = NodePath("Panel/HBoxContainer/Button")
 
 [node name="Panel" type="Panel" parent="Reward"]
 layout_mode = 2
@@ -368,7 +380,18 @@ size_flags_vertical = 4
 [node name="Label" type="Label" parent="Reward/Panel/HBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_84c7l")
-theme_override_font_sizes/font_size = 42
+theme_override_font_sizes/font_size = 22
 text = "Reward Text"
 horizontal_alignment = 1
 autowrap_mode = 2
+
+[node name="Button" type="Button" parent="Reward/Panel/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_84c7l")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxTexture_sly87")
+theme_override_styles/hover = SubResource("StyleBoxTexture_sly87")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_y4kx1")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hnvvi")
+text = "Start"
+icon = SubResource("ImageTexture_itpu2")

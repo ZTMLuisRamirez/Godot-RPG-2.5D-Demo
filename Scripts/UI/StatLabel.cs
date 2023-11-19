@@ -14,7 +14,7 @@ public partial class StatLabel : Label
 		Text = statResource.StatValue.ToString();
 	}
 
-	private void HandleUpdate(float statValue)
+	private void HandleUpdate()
 	{
 		Text = statResource.StatValue.ToString();
 	}

@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="BonusResource" load_steps=2 format=3 uid="uid://dkqaowqddpord"]
+[gd_resource type="Resource" script_class="BonusResource" load_steps=3 format=3 uid="uid://dkqaowqddpord"]
 
 [ext_resource type="Script" path="res://Scripts/Stats/BonusResource.cs" id="1_gytb1"]
+[ext_resource type="Texture2D" uid="uid://bcr1rk0b8oiiv" path="res://Assets/Sprites/UI/UI ELement 13.png" id="1_i81cg"]
 
 [resource]
 script = ExtResource("1_gytb1")
-SpriteTexture = "res://Assets/Sprites/UI/UI ELement 13.png"
+SpriteTexture = ExtResource("1_i81cg")
 Description = "You've received bonus strength!"
 StatType = 0
 Amount = 3.0

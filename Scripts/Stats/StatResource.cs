@@ -15,7 +15,7 @@ public enum Stat
 public partial class StatResource : Resource
 {
     public event Action OnZeroOrNegative;
-    public event Action<float> OnUpdate;
+    public event Action OnUpdate;
 
     [Export] public Stat StatType { get; set; }
 
@@ -26,9 +26,9 @@ public partial class StatResource : Resource
         get => _statValue;
         set
         {
-            _statValue = value;
+            _statValue = Mathf.Clamp(value, 0, Mathf.Inf);
 
-            OnUpdate?.Invoke(_statValue);
+            OnUpdate?.Invoke();
 
             if (_statValue <= 0)
             {

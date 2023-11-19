@@ -20,5 +20,7 @@ public partial class TreasureChest : StaticBody3D
 	private void HandleInteracted()
 	{
 		GameEvents.RaiseBonus(bonus);
+
+		interactionIconNode.QueueFree();
 	}
 }

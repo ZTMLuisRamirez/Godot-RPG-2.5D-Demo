@@ -1,11 +1,12 @@
 using System;
 using Godot;
+using RPG.Stats;
 
 namespace RPG.General;
 
 public partial class GameManager : Node
 {
-    private bool isGameRunning = false;
+    private bool canPause = false;
     private int enemyCount = 0;
 
     public override void _Ready()
@@ -15,6 +16,8 @@ public partial class GameManager : Node
         GameEvents.OnStartGame += HandleStartGame;
         GameEvents.OnEndGame += HandleEndGame;
         GameEvents.OnEnemyDefeated += HandleEnemyDefeated;
+        GameEvents.OnBonus += HandleBonus;
+        GameEvents.OnBonusClosed += HandleBonusClosed;
     }
 
     private void HandleEnemyDefeated()
@@ -27,14 +30,14 @@ public partial class GameManager : Node
         {
             GameEvents.RaiseVictory();
 
-            isGameRunning = false;
+            canPause = false;
             GetTree().Paused = true;
         }
     }
 
     private void HandleStartGame()
     {
-        isGameRunning = true;
+        canPause = true;
 
         var scene = GetTree().CurrentScene;
 
@@ -49,7 +52,7 @@ public partial class GameManager : Node
 
     public override void _Input(InputEvent inputEvent)
     {
-        if (!isGameRunning) return;
+        if (!canPause) return;
 
         if (!Input.IsActionJustPressed(GameConstants.INPUT_PAUSE)) return;
 
@@ -60,6 +63,17 @@ public partial class GameManager : Node
 
     private void HandleEndGame()
     {
-        isGameRunning = false;
+        GetTree().Paused = true;
+        canPause = false;
+    }
+
+    private void HandleBonus(BonusResource resource)
+    {
+        canPause = false;
+    }
+
+    private void HandleBonusClosed()
+    {
+        canPause = true;
     }
 }

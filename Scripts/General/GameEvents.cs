@@ -13,6 +13,7 @@ public static class GameEvents
 	public static event Action<int> OnNewEnemyCount;
 	public static event Action<Stat, float> OnUpgradeStat;
 	public static event Action<BonusResource> OnBonus;
+	public static event Action OnBonusClosed;
 
 	public static void RaiseStartGame() => OnStartGame?.Invoke();
 	public static void RaisePauseToggled(bool isPaused) => OnPauseToggled?.Invoke(isPaused);
@@ -23,4 +24,5 @@ public static class GameEvents
 	public static void RaiseUpgradeStat(Stat StatToUpgrade, float amount)
 		=> OnUpgradeStat?.Invoke(StatToUpgrade, amount);
 	public static void RaiseBonus(BonusResource bonus) => OnBonus?.Invoke(bonus);
+	public static void RaiseBonusClosed() => OnBonusClosed?.Invoke();
 }

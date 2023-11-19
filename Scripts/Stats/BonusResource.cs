@@ -6,7 +6,7 @@ namespace RPG.Stats;
 public partial class BonusResource : Resource
 {
     [Export(PropertyHint.File, "*.png,")]
-    public string SpriteTexture { get; private set; }
+    public Texture2D SpriteTexture { get; private set; }
 
     [Export]
     public string Description { get; private set; }

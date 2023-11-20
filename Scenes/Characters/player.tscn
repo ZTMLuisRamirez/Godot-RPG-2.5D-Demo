@@ -520,7 +520,7 @@ process_mode = 4
 
 [node name="PlayerDashState" parent="CharacterStateMachine" instance=ExtResource("13_ip43t")]
 process_mode = 4
-speed = 7.0
+speed = 12.0
 
 [node name="PlayerDeathState" parent="CharacterStateMachine" instance=ExtResource("18_pja3f")]
 process_mode = 4

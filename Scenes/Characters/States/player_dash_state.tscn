@@ -6,7 +6,7 @@
 script = ExtResource("1_xpkcl")
 
 [node name="DashTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.6
 one_shot = true
 
 [node name="CooldownTimer" type="Timer" parent="."]

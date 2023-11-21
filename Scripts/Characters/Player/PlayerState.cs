@@ -1,9 +1,10 @@
 using System.Linq;
 using Godot;
+using RPG.Characters.States;
 using RPG.General;
 using RPG.Stats;
 
-namespace RPG.Characters.States;
+namespace RPG.Characters.Player;
 
 public abstract partial class PlayerState : CharacterState
 {

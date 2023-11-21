@@ -1,9 +1,10 @@
 using System;
 using Godot;
+using RPG.Characters.States;
 using RPG.General;
 using RPG.Stats;
 
-namespace RPG.Characters.States;
+namespace RPG.Characters.Enemies;
 
 public abstract partial class EnemyState : CharacterState
 {

@@ -4,7 +4,7 @@ using Godot;
 using RPG.General;
 using RPG.Stats;
 
-namespace RPG.Characters;
+namespace RPG.Characters.Player;
 
 public partial class Player : Character
 {

@@ -1,8 +1,9 @@
 using Godot;
+using RPG.Characters.States;
 using RPG.General;
 using System;
 
-namespace RPG.Characters.States;
+namespace RPG.Characters.Enemies;
 
 public partial class EnemyMushroomReturnState : EnemyState
 {

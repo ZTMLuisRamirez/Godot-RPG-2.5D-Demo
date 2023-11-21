@@ -2,9 +2,10 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Godot;
+using RPG.Characters.States;
 using RPG.General;
 
-namespace RPG.Characters.States;
+namespace RPG.Characters.Player;
 
 public partial class PlayerAttackState : PlayerState
 {

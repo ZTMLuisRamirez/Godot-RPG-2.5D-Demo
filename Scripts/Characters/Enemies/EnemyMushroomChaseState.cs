@@ -4,6 +4,8 @@ using Godot;
 using RPG.Characters.States;
 using RPG.General;
 
+namespace RPG.Characters.Enemies;
+
 public partial class EnemyMushroomChaseState : EnemyState
 {
 	public override State StateType => State.Chase;

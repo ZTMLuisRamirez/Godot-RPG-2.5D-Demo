@@ -2,6 +2,8 @@ using Godot;
 using RPG.Characters.States;
 using RPG.General;
 
+namespace RPG.Characters.Player;
+
 public partial class PlayerMoveState : PlayerState
 {
 	public override State StateType => State.Move;

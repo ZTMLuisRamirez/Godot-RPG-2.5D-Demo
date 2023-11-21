@@ -4,6 +4,8 @@ using RPG.General;
 using System;
 using System.Linq;
 
+namespace RPG.Characters.Enemies;
+
 public partial class EnemyMushroomAttackState : EnemyState
 {
 	public override State StateType => State.Attack;

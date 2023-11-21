@@ -1,7 +1,8 @@
 using Godot;
+using RPG.Characters.States;
 using RPG.General;
 
-namespace RPG.Characters.States;
+namespace RPG.Characters.Player;
 
 public partial class PlayerIdleState : PlayerState
 {

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://2315iousjww3"]
 
-[ext_resource type="Script" path="res://Scripts/Characters/States/EnemyMushroomPatrolState.cs" id="1_ysadd"]
+[ext_resource type="Script" path="res://Scripts/Characters/Enemies/EnemyMushroomPatrolState.cs" id="1_ysadd"]
 
 [node name="EnemyMushroomPatrolState" type="Node"]
 script = ExtResource("1_ysadd")

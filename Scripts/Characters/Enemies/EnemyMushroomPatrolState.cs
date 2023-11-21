@@ -3,6 +3,8 @@ using RPG.Characters.States;
 using RPG.General;
 using System;
 
+namespace RPG.Characters.Enemies;
+
 public partial class EnemyMushroomPatrolState : EnemyState
 {
 	public override State StateType => State.Patrol;

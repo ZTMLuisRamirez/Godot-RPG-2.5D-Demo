@@ -7,5 +7,5 @@ namespace RPG.Characters;
 
 public partial class PlayerStateMachine : CharacterStateMachine
 {
-    public CharacterState idleState;
+    // public CharacterState<Player> idleState;
 }

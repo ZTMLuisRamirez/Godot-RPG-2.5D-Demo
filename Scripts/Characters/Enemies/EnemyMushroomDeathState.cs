@@ -1,11 +1,12 @@
 using Godot;
+using RPG.Characters.Enemies;
 using RPG.General;
 using System;
 using System.Reflection;
 
 namespace RPG.Characters.States;
 
-public partial class EnemyMushroomDeathState : CharacterState
+public partial class EnemyMushroomDeathState : EnemyState
 {
 	public override State StateType => State.Death;
 

@@ -40,7 +40,7 @@ public abstract partial class PlayerState : CharacterState
         );
     }
 
-    protected void CheckForAttackState()
+    protected void CheckForAttackInput()
     {
         if (Input.IsActionJustPressed(GameConstants.INPUT_ATTACK))
         {
@@ -48,7 +48,7 @@ public abstract partial class PlayerState : CharacterState
         }
     }
 
-    protected void CheckForDashState()
+    protected void CheckForDashInput()
     {
         if (Input.IsActionJustPressed(GameConstants.INPUT_DASH))
         {

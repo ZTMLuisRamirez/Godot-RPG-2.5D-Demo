@@ -1,6 +1,4 @@
-using System;
 using System.Linq;
-using System.Threading.Tasks;
 using Godot;
 using RPG.Characters.States;
 using RPG.General;
@@ -10,12 +8,6 @@ namespace RPG.Characters.Player;
 public partial class PlayerAttackState : PlayerState
 {
 	public override State StateType => State.Attack;
-
-	[Export(PropertyHint.Range, "0,20,0.1")] private float moveDistance = 5;
-	[Export(PropertyHint.Range, "0,3,0.1")] private float attackDistance = 2f;
-	[Export(PropertyHint.Range, "0,3,0.1")] private float attackZone = 0.8f;
-	[Export] private float lightningComboThreshold = 4;
-	[Export] private PackedScene lightningScene;
 
 	private Timer comboTimerNode;
 	private int comboCounter = 1;
@@ -32,7 +24,7 @@ public partial class PlayerAttackState : PlayerState
 	public override void _PhysicsProcess(double delta)
 	{
 		var direction = GetFacingDirection();
-		characterNode.Velocity = direction * (float)(delta * moveDistance);
+		characterNode.Velocity = direction * (float)(delta * characterNode.MoveDistance);
 		characterNode.MoveAndSlide();
 	}
 
@@ -87,7 +79,7 @@ public partial class PlayerAttackState : PlayerState
 
 	private void HandleBodyEntered(Node3D body)
 	{
-		if (comboCounter != lightningComboThreshold) return;
+		if (comboCounter != characterNode.lightningComboThreshold) return;
 
 		var enemy = characterNode.HitboxNode.GetOverlappingBodies()
 			.Where(child => child is CharacterBody3D)
@@ -97,7 +89,7 @@ public partial class PlayerAttackState : PlayerState
 		if (enemy == null) return;
 
 		// Instantiate Crystal
-		var lightning = lightningScene.Instantiate<Node3D>();
+		var lightning = characterNode.lightningScene.Instantiate<Node3D>();
 		GetTree().CurrentScene.AddChild(lightning);
 		lightning.GlobalPosition = body.GlobalPosition;
 	}

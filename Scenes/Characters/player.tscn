@@ -476,13 +476,16 @@ size = Vector3(0.5, 0.5, 0.5)
 collision_mask = 15
 wall_min_slide_angle = 3.14159
 script = ExtResource("1_k2rsh")
+stats = Array[Object]([ExtResource("2_dwlun"), ExtResource("3_5geoj")])
 HurtboxNode = NodePath("Hurtbox")
 SpriteNode = NodePath("Sprite3D")
 AnimPlayerNode = NodePath("AnimationPlayer")
 HitboxNode = NodePath("Hitbox")
-stats = Array[Object]([ExtResource("2_dwlun"), ExtResource("3_5geoj")])
+CrystalScene = ExtResource("19_vtdan")
+lightningScene = ExtResource("18_p812t")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
+alpha_cut = 2
 texture_filter = 0
 texture = ExtResource("1_3gjlt")
 hframes = 4
@@ -515,19 +518,15 @@ shape = ExtResource("10_xmcpq")
 
 [node name="PlayerMoveState" parent="CharacterStateMachine" instance=ExtResource("10_kc1bd")]
 process_mode = 4
-speed = 4.0
 
 [node name="PlayerIdleState" parent="CharacterStateMachine" instance=ExtResource("10_nxgb6")]
 process_mode = 4
 
 [node name="PlayerAttackState" parent="CharacterStateMachine" instance=ExtResource("10_ma0xx")]
 process_mode = 4
-lightningScene = ExtResource("18_p812t")
 
 [node name="PlayerDashState" parent="CharacterStateMachine" instance=ExtResource("13_ip43t")]
 process_mode = 4
-crystalScene = ExtResource("19_vtdan")
-speed = 12.0
 
 [node name="PlayerDeathState" parent="CharacterStateMachine" instance=ExtResource("18_pja3f")]
 process_mode = 4

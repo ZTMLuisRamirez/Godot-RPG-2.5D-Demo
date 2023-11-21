@@ -1,5 +1,3 @@
-using System;
-using System.Linq;
 using Godot;
 using RPG.General;
 using RPG.Stats;
@@ -8,6 +6,8 @@ namespace RPG.Characters.Player;
 
 public partial class Player : Character
 {
+    public float speed;
+
     public override void _Ready()
     {
         base._Ready();

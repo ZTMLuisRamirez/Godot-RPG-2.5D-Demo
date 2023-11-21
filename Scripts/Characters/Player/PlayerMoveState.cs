@@ -8,8 +8,6 @@ public partial class PlayerMoveState : PlayerState
 {
 	public override State StateType => State.Move;
 
-	[Export(PropertyHint.Range, "0,20,0.1")] private float speed = 3f;
-
 	public override void EnterState()
 	{
 		base.EnterState();
@@ -19,10 +17,10 @@ public partial class PlayerMoveState : PlayerState
 
 	public override void _PhysicsProcess(double delta)
 	{
-		var direction2d = GetMoveInput();
+		var direction = GetMoveInput();
 
-		characterNode.Velocity = new(direction2d.X, 0, direction2d.Y);
-		characterNode.Velocity *= speed;
+		characterNode.Velocity = new(direction.X, 0, direction.Y);
+		characterNode.Velocity *= characterNode.MoveSpeed;
 
 		if (characterNode.Velocity == Vector3.Zero)
 		{
@@ -37,7 +35,7 @@ public partial class PlayerMoveState : PlayerState
 
 	public override void _Input(InputEvent @event)
 	{
-		CheckForAttackState();
-		CheckForDashState();
+		CheckForAttackInput();
+		CheckForDashInput();
 	}
 }

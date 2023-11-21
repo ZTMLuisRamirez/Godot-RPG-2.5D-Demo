@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dcgiukagadlup"]
+[gd_scene load_steps=32 format=3 uid="uid://dcgiukagadlup"]
 
 [ext_resource type="Texture2D" uid="uid://dx4tdi36hvogf" path="res://Assets/Sprites/Characters/EnemyMushroom/Idle.png" id="1_1rtej"]
 [ext_resource type="Script" path="res://Scripts/Characters/Enemy.cs" id="1_kyfww"]
@@ -23,6 +23,13 @@
 script = ExtResource("2_juh0l")
 StatType = 0
 StatValue = 4.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k0fn3"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_blbt1"]
+material = SubResource("StandardMaterial3D_k0fn3")
 
 [sub_resource type="Animation" id="Animation_w4db0"]
 resource_name = "Attack"
@@ -308,6 +315,12 @@ SpriteNode = NodePath("Sprite3D")
 AnimPlayerNode = NodePath("AnimationPlayer")
 HitboxNode = NodePath("Hitbox")
 stats = Array[Object]([ExtResource("2_ljy4f"), SubResource("Resource_roxkf")])
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.62593, 0, 0, 0, 0.547207, 0, 0, 0, 0.5771, 0, 0, 0)
+transparency = 0.23
+gi_mode = 2
+mesh = SubResource("CapsuleMesh_blbt1")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)

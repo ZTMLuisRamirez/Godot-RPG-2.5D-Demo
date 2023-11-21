@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://k0porrca1ptk"]
-
-[ext_resource type="Script" path="res://Scripts/Characters/NPC/NPCIdleState.cs" id="1_8cpf1"]
-
-[node name="NPCIdleState" type="Node"]
-script = ExtResource("1_8cpf1")

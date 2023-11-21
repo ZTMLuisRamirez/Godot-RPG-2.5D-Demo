@@ -1,7 +1,5 @@
-using System;
 using Godot;
 using RPG.Characters.States;
-using RPG.General;
 using RPG.Stats;
 
 namespace RPG.Characters.Enemies;

@@ -6,7 +6,7 @@ namespace RPG.Characters.Player;
 
 public partial class PlayerIdleState : PlayerState
 {
-    public override State StateType { get; } = State.Idle;
+    public override State StateType => State.Idle;
 
     public override void EnterState()
     {
@@ -27,7 +27,7 @@ public partial class PlayerIdleState : PlayerState
 
     public override void _Input(InputEvent @event)
     {
-        CheckForAttackState();
-        CheckForDashState();
+        CheckForAttackInput();
+        CheckForDashInput();
     }
 }

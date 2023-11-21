@@ -8,15 +8,14 @@ namespace RPG.Characters;
 
 public partial class Player : Character
 {
-    protected Area3D areaHurtbox;
-
     public override void _Ready()
     {
-        areaHurtbox = GetNode<Area3D>("Hurtbox");
+        base._Ready();
 
-        areaHurtbox.AreaEntered += HandleBodyEntered;
+        HurtboxNode.AreaEntered += HandleBodyEntered;
         GameEvents.OnBonus += HandleBonus;
     }
+
     private void HandleBodyEntered(Node3D body)
     {
         if (body is not IHitbox hitbox) return;
@@ -32,5 +31,4 @@ public partial class Player : Character
 
         targetStat.StatValue += resource.Amount;
     }
-
 }

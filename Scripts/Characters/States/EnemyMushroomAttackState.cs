@@ -14,7 +14,7 @@ public partial class EnemyMushroomAttackState : EnemyState
 	{
 		base.EnterState();
 
-		animPlayerNode.Play(GameConstants.ATTACK_ANIM);
+		characterNode.AnimPlayerNode.Play(GameConstants.ATTACK_ANIM);
 		characterNode.Velocity = Vector3.Zero;
 
 		var target = attackAreaNode.GetOverlappingBodies()
@@ -23,7 +23,7 @@ public partial class EnemyMushroomAttackState : EnemyState
 			.FirstOrDefault();
 
 		targetPosition = target.GlobalPosition;
-		animPlayerNode.AnimationFinished += HandleAnimationFinished;
+		characterNode.AnimPlayerNode.AnimationFinished += HandleAnimationFinished;
 		characterNode.OnStun += HandleStun;
 	}
 
@@ -31,7 +31,7 @@ public partial class EnemyMushroomAttackState : EnemyState
 	{
 		base.ExitState();
 
-		animPlayerNode.AnimationFinished -= HandleAnimationFinished;
+		characterNode.AnimPlayerNode.AnimationFinished -= HandleAnimationFinished;
 		characterNode.OnStun -= HandleStun;
 	}
 
@@ -56,6 +56,6 @@ public partial class EnemyMushroomAttackState : EnemyState
 			return;
 		}
 
-		animPlayerNode.Play(GameConstants.ATTACK_ANIM);
+		characterNode.AnimPlayerNode.Play(GameConstants.ATTACK_ANIM);
 	}
 }

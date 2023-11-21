@@ -299,10 +299,14 @@ radius = 0.7
 [sub_resource type="SphereShape3D" id="SphereShape3D_ect51"]
 radius = 0.25
 
-[node name="EnemyMushroom" type="CharacterBody3D"]
+[node name="EnemyMushroom" type="CharacterBody3D" node_paths=PackedStringArray("HurtboxNode", "SpriteNode", "AnimPlayerNode", "HitboxNode")]
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_kyfww")
+HurtboxNode = NodePath("Hurtbox")
+SpriteNode = NodePath("Sprite3D")
+AnimPlayerNode = NodePath("AnimationPlayer")
+HitboxNode = NodePath("Hitbox")
 stats = Array[Object]([ExtResource("2_ljy4f"), SubResource("Resource_roxkf")])
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
@@ -311,8 +315,7 @@ texture_filter = 0
 texture = ExtResource("1_1rtej")
 hframes = 4
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite3D"]
-root_node = NodePath("../..")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_tvp70")
 }

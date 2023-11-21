@@ -11,8 +11,8 @@ public partial class PlayerDeathState : CharacterState
 	{
 		base.EnterState();
 
-		animPlayerNode.Play(GameConstants.DEATH_ANIM);
-		animPlayerNode.AnimationFinished += HandleAnimationFinished;
+		characterNode.AnimPlayerNode.Play(GameConstants.DEATH_ANIM);
+		characterNode.AnimPlayerNode.AnimationFinished += HandleAnimationFinished;
 	}
 
 	private void HandleAnimationFinished(StringName animName)

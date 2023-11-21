@@ -12,15 +12,15 @@ public partial class EnemyMushroomStunState : EnemyState
 	{
 		base.EnterState();
 
-		animPlayerNode.Play(GameConstants.TAKE_HIT_ANIM);
-		animPlayerNode.AnimationFinished += HandleAnimationFinished;
+		characterNode.AnimPlayerNode.Play(GameConstants.TAKE_HIT_ANIM);
+		characterNode.AnimPlayerNode.AnimationFinished += HandleAnimationFinished;
 	}
 
 	public override void ExitState()
 	{
 		base.ExitState();
 
-		animPlayerNode.AnimationFinished -= HandleAnimationFinished;
+		characterNode.AnimPlayerNode.AnimationFinished -= HandleAnimationFinished;
 	}
 
 	private void HandleAnimationFinished(StringName animName)

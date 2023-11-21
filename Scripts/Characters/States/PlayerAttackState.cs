@@ -39,10 +39,10 @@ public partial class PlayerAttackState : PlayerState
 	{
 		base.EnterState();
 
-		animPlayerNode.Play($"{GameConstants.ATTACK_ANIM}{comboCounter}");
+		characterNode.AnimPlayerNode.Play($"{GameConstants.ATTACK_ANIM}{comboCounter}");
 
-		animPlayerNode.AnimationFinished += HandleAnimationFinished;
-		hitboxNode.BodyEntered += HandleBodyEntered;
+		characterNode.AnimPlayerNode.AnimationFinished += HandleAnimationFinished;
+		characterNode.HitboxNode.BodyEntered += HandleBodyEntered;
 	}
 
 	public override void ExitState()
@@ -51,13 +51,13 @@ public partial class PlayerAttackState : PlayerState
 
 		comboTimerNode.Start();
 
-		animPlayerNode.AnimationFinished -= HandleAnimationFinished;
-		hitboxNode.BodyEntered -= HandleBodyEntered;
+		characterNode.AnimPlayerNode.AnimationFinished -= HandleAnimationFinished;
+		characterNode.HitboxNode.BodyEntered -= HandleBodyEntered;
 	}
 
 	private void HandleAnimationFinished(StringName animName)
 	{
-		hitboxShapeNode.Disabled = true;
+		characterNode.ToggleHitbox(true);
 		comboCounter++;
 
 		if (comboCounter > 4)
@@ -75,20 +75,20 @@ public partial class PlayerAttackState : PlayerState
 
 	private void PerformHit()
 	{
-		hitboxShapeNode.Disabled = false;
+		characterNode.ToggleHitbox(false);
 
-		var newPosition = sprite3DNode.FlipH ? Vector3.Left : Vector3.Right;
+		var newPosition = characterNode.SpriteNode.FlipH ? Vector3.Left : Vector3.Right;
 		var halfMultiplier = 0.5f;
 		newPosition *= halfMultiplier;
 
-		hitboxNode.Position = newPosition;
+		characterNode.HitboxNode.Position = newPosition;
 	}
 
 	private void HandleBodyEntered(Node3D body)
 	{
 		if (comboCounter != lightningComboThreshold) return;
 
-		var enemy = hitboxNode.GetOverlappingBodies()
+		var enemy = characterNode.HitboxNode.GetOverlappingBodies()
 			.Where(child => child is CharacterBody3D)
 			.Cast<CharacterBody3D>()
 			.FirstOrDefault();

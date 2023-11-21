@@ -12,7 +12,7 @@ public partial class PlayerMoveState : PlayerState
 	{
 		base.EnterState();
 
-		animPlayerNode.Play(GameConstants.RUN_ANIM);
+		characterNode.AnimPlayerNode.Play(GameConstants.RUN_ANIM);
 	}
 
 	public override void _PhysicsProcess(double delta)

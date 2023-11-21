@@ -30,7 +30,7 @@ public partial class PlayerDashState : PlayerState
 	{
 		base.EnterState();
 
-		animPlayerNode.Play(GameConstants.DASH_ANIM);
+		characterNode.AnimPlayerNode.Play(GameConstants.DASH_ANIM);
 		dashTimerNode.Start();
 	}
 

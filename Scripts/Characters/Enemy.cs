@@ -11,6 +11,8 @@ public partial class Enemy : Character
 
     public override void _Ready()
     {
+        base._Ready();
+
         areaHurtbox = GetNode<Area3D>("Hurtbox");
 
         areaHurtbox.AreaEntered += HandleBodyEntered;

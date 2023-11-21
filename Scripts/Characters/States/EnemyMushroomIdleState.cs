@@ -12,7 +12,7 @@ public partial class EnemyMushroomIdleState : EnemyState
 	{
 		base.EnterState();
 
-		animPlayerNode.Play(GameConstants.IDLE_ANIM);
+		characterNode.AnimPlayerNode.Play(GameConstants.IDLE_ANIM);
 		chaseAreaNode.BodyEntered += HandleChaseAreaBodyEntered;
 	}
 

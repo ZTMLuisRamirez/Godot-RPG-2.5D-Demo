@@ -30,7 +30,7 @@ public partial class EnemyMushroomPatrolState : EnemyState
 
 		pointIndex = 0;
 		agentNode.TargetPosition = GetPointGlobalPosition();
-		animPlayerNode.Play(GameConstants.IDLE_ANIM);
+		characterNode.AnimPlayerNode.Play(GameConstants.IDLE_ANIM);
 
 		chaseAreaNode.BodyEntered += HandleChaseAreaBodyEntered;
 		agentNode.NavigationFinished += HandleNavigationFinished;
@@ -68,7 +68,7 @@ public partial class EnemyMushroomPatrolState : EnemyState
 
 	private void HandleNavigationFinished()
 	{
-		animPlayerNode.Play(GameConstants.IDLE_ANIM);
+		characterNode.AnimPlayerNode.Play(GameConstants.IDLE_ANIM);
 
 		var rng = new RandomNumberGenerator();
 		idleTimerNode.WaitTime = rng.RandfRange(0, maxIdleTime);
@@ -81,6 +81,6 @@ public partial class EnemyMushroomPatrolState : EnemyState
 
 		agentNode.TargetPosition = GetPointGlobalPosition();
 
-		animPlayerNode.Play(GameConstants.RUN_ANIM);
+		characterNode.AnimPlayerNode.Play(GameConstants.RUN_ANIM);
 	}
 }

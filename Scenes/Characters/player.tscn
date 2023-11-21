@@ -1,8 +1,8 @@
 [gd_scene load_steps=33 format=3 uid="uid://dupcd37r2l3p8"]
 
 [ext_resource type="Texture2D" uid="uid://63rvecswhgwg" path="res://Assets/Sprites/Characters/Player/Idle_KG_2.png" id="1_3gjlt"]
-[ext_resource type="Script" path="res://Scripts/Characters/Player.cs" id="1_agy2u"]
 [ext_resource type="Texture2D" uid="uid://c3eqrvhx1q87j" path="res://Assets/Sprites/Characters/Player/Walking_KG_2.png" id="1_h70fb"]
+[ext_resource type="Script" path="res://Scripts/Characters/Player/Player.cs" id="1_k2rsh"]
 [ext_resource type="Texture2D" uid="uid://cviyl0gi5fr3l" path="res://Assets/Sprites/Characters/Player/Attack_KG_1.png" id="2_8v3ad"]
 [ext_resource type="Resource" uid="uid://6gidf6gvpmta" path="res://Scenes/Characters/player_health_stat.tres" id="2_dwlun"]
 [ext_resource type="Resource" uid="uid://x2amu5p3py4" path="res://Scenes/Characters/player_strength_stat.tres" id="3_5geoj"]
@@ -472,10 +472,14 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_llrcg"]
 size = Vector3(0.5, 0.5, 0.5)
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("HurtboxNode", "SpriteNode", "AnimPlayerNode", "HitboxNode")]
 collision_mask = 15
 wall_min_slide_angle = 3.14159
-script = ExtResource("1_agy2u")
+script = ExtResource("1_k2rsh")
+HurtboxNode = NodePath("Hurtbox")
+SpriteNode = NodePath("Sprite3D")
+AnimPlayerNode = NodePath("AnimationPlayer")
+HitboxNode = NodePath("Hitbox")
 stats = Array[Object]([ExtResource("2_dwlun"), ExtResource("3_5geoj")])
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
@@ -483,8 +487,7 @@ texture_filter = 0
 texture = ExtResource("1_3gjlt")
 hframes = 4
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite3D"]
-root_node = NodePath("../..")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_sclvd")
 }

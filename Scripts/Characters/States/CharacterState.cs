@@ -8,8 +8,6 @@ public abstract partial class CharacterState : Node
     public abstract State StateType { get; }
     protected Character characterNode;
     protected CharacterStateMachine stateMachineNode;
-    protected Sprite3D sprite3DNode;
-    protected AnimationPlayer animPlayerNode;
 
     public Func<bool> CanTransition = () => true;
 
@@ -17,8 +15,6 @@ public abstract partial class CharacterState : Node
     {
         characterNode = GetOwner<Character>();
         stateMachineNode = GetParent<CharacterStateMachine>();
-        sprite3DNode = characterNode.GetNode<Sprite3D>("Sprite3D");
-        animPlayerNode = sprite3DNode.GetNode<AnimationPlayer>("AnimationPlayer");
     }
 
     public virtual void EnterState()
@@ -39,6 +35,6 @@ public abstract partial class CharacterState : Node
 
         var isMovingLeft = characterNode.Velocity.X < 0;
 
-        sprite3DNode.FlipH = isMovingLeft;
+        characterNode.SpriteNode.FlipH = isMovingLeft;
     }
 }

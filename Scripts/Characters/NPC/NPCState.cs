@@ -10,6 +10,6 @@ public abstract partial class NPCState : CharacterState
     {
         base._Ready();
 
-        animPlayerNode.Play(GameConstants.IDLE_ANIM);
+        characterNode.AnimPlayerNode.Play(GameConstants.IDLE_ANIM);
     }
 }

@@ -15,7 +15,7 @@ public partial class EnemyMushroomChaseState : EnemyState
 	{
 		base.EnterState();
 
-		animPlayerNode.Play(GameConstants.RUN_ANIM);
+		characterNode.AnimPlayerNode.Play(GameConstants.RUN_ANIM);
 		player = chaseAreaNode.GetOverlappingBodies()
 			.Where(child => child is CharacterBody3D)
 			.Cast<CharacterBody3D>()

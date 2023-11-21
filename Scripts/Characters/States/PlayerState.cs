@@ -1,3 +1,4 @@
+using System.Linq;
 using Godot;
 using RPG.General;
 using RPG.Stats;
@@ -6,17 +7,9 @@ namespace RPG.Characters.States;
 
 public abstract partial class PlayerState : CharacterState
 {
-    protected Area3D hitboxNode;
-    protected CollisionShape3D hitboxShapeNode;
-
     public override void EnterState()
     {
         base.EnterState();
-
-        hitboxNode = characterNode.GetNode<Area3D>("Hitbox");
-        hitboxShapeNode = hitboxNode.GetNode<CollisionShape3D>("CollisionShape3D");
-
-        hitboxShapeNode.Disabled = true;
 
         if (StateType != State.Death)
         {
@@ -64,7 +57,7 @@ public abstract partial class PlayerState : CharacterState
 
     protected Vector3 GetFacingDirection()
     {
-        return sprite3DNode.FlipH ? Vector3.Left : Vector3.Right;
+        return characterNode.SpriteNode.FlipH ? Vector3.Left : Vector3.Right;
     }
 
     private void HandleDeath()

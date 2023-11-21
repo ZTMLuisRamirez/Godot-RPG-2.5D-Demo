@@ -14,7 +14,7 @@ public partial class EnemyMushroomReturnState : EnemyState
     {
         base.EnterState();
 
-        animPlayerNode.Play(GameConstants.RUN_ANIM);
+        characterNode.AnimPlayerNode.Play(GameConstants.RUN_ANIM);
         agentNode.TargetPosition = initialPathPosition;
 
         agentNode.VelocityComputed += HandleVelocityComputed;

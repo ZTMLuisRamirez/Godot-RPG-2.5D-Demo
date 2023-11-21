@@ -19,13 +19,20 @@ public partial class EnemyMushroomChaseState : EnemyState
 		player = chaseAreaNode.GetOverlappingBodies()
 			.Where(child => child is CharacterBody3D)
 			.Cast<CharacterBody3D>()
-			.First();
+			.FirstOrDefault();
+
+		if (player == null)
+		{
+			stateMachineNode.SwitchState(State.Return);
+			return;
+		}
 
 		agentNode.TargetPosition = player.GlobalPosition;
 
 		attackAreaNode.BodyEntered += HandleAttackAreaBodyEntered;
 		chaseAreaNode.BodyExited += HandleChaseAreaBodyExited;
 		agentNode.VelocityComputed += HandleVelocityComputed;
+		characterNode.OnStun += HandleStun;
 	}
 
 	public override void ExitState()
@@ -35,6 +42,7 @@ public partial class EnemyMushroomChaseState : EnemyState
 		attackAreaNode.BodyEntered -= HandleAttackAreaBodyEntered;
 		chaseAreaNode.BodyExited -= HandleChaseAreaBodyExited;
 		agentNode.VelocityComputed -= HandleVelocityComputed;
+		characterNode.OnStun -= HandleStun;
 	}
 
 	public override void _PhysicsProcess(double delta)

@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using Godot;
 using RPG.Stats;
@@ -23,5 +24,10 @@ public partial class Enemy : Character
             .FirstOrDefault();
 
         health.StatValue -= hitbox.GetDamage();
+
+        if (hitbox.CanStun())
+        {
+            RaiseStun();
+        }
     }
 }

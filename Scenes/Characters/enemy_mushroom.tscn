@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dcgiukagadlup"]
+[gd_scene load_steps=30 format=3 uid="uid://dcgiukagadlup"]
 
 [ext_resource type="Texture2D" uid="uid://dx4tdi36hvogf" path="res://Assets/Sprites/Characters/EnemyMushroom/Idle.png" id="1_1rtej"]
 [ext_resource type="Script" path="res://Scripts/Characters/Enemy.cs" id="1_kyfww"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://b7vadrrylha0h" path="res://Scenes/Characters/States/enemy_mushroom_chase_state.tscn" id="10_strsy"]
 [ext_resource type="PackedScene" uid="uid://ygtovvlntewq" path="res://Scenes/Characters/States/enemy_mushroom_attack_state.tscn" id="11_aexpb"]
 [ext_resource type="PackedScene" uid="uid://jgv0s8y71ypa" path="res://Scenes/Characters/States/enemy_mushroom_death_state.tscn" id="14_r1sgc"]
+[ext_resource type="PackedScene" uid="uid://b5ode5e34eoco" path="res://Scenes/Characters/States/enemy_mushroom_stun_state.tscn" id="18_cvjxh"]
 
 [sub_resource type="Resource" id="Resource_roxkf"]
 script = ExtResource("2_juh0l")
@@ -367,4 +368,7 @@ process_mode = 4
 process_mode = 4
 
 [node name="EnemyMushroomDeathState" parent="CharacterStateMachine" instance=ExtResource("14_r1sgc")]
+process_mode = 4
+
+[node name="EnemyMushroomStunState" parent="CharacterStateMachine" instance=ExtResource("18_cvjxh")]
 process_mode = 4

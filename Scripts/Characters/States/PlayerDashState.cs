@@ -4,6 +4,8 @@ using RPG.General;
 
 public partial class PlayerDashState : PlayerState
 {
+	[Export] private PackedScene crystalScene;
+
 	public override State StateType => State.Dash;
 
 	[Export] private float speed = 10f;
@@ -28,11 +30,6 @@ public partial class PlayerDashState : PlayerState
 	{
 		base.EnterState();
 
-		// if (ability == null)
-		// {
-		// 	ability = abilityController.GetAbility<DashAbility>();
-		// }
-
 		animPlayerNode.Play(GameConstants.DASH_ANIM);
 		dashTimerNode.Start();
 	}
@@ -53,6 +50,11 @@ public partial class PlayerDashState : PlayerState
 		{
 			direction = GetFacingDirection();
 		}
+
+		// Instantiate Crystal
+		var crystal = crystalScene.Instantiate<Node3D>();
+		GetTree().CurrentScene.AddChild(crystal);
+		crystal.GlobalPosition = characterNode.GlobalPosition;
 	}
 
 	private void HandleDashTimeout()

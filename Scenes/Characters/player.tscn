@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dupcd37r2l3p8"]
+[gd_scene load_steps=33 format=3 uid="uid://dupcd37r2l3p8"]
 
 [ext_resource type="Texture2D" uid="uid://63rvecswhgwg" path="res://Assets/Sprites/Characters/Player/Idle_KG_2.png" id="1_3gjlt"]
 [ext_resource type="Script" path="res://Scripts/Characters/Player.cs" id="1_agy2u"]
@@ -18,7 +18,9 @@
 [ext_resource type="PackedScene" uid="uid://6xgnhxon50l0" path="res://Scenes/Characters/States/player_idle_state.tscn" id="10_nxgb6"]
 [ext_resource type="Shape3D" uid="uid://c2d7ohkjk0vk3" path="res://Scenes/Characters/player_shape.tres" id="10_xmcpq"]
 [ext_resource type="PackedScene" uid="uid://vtod8mygwk3c" path="res://Scenes/Characters/States/player_dash_state.tscn" id="13_ip43t"]
+[ext_resource type="PackedScene" uid="uid://cg2j2m4y5ab52" path="res://Scenes/Abilities/lightning.tscn" id="18_p812t"]
 [ext_resource type="PackedScene" uid="uid://b4sw6f2ghh7fx" path="res://Scenes/Characters/States/player_death_state.tscn" id="18_pja3f"]
+[ext_resource type="PackedScene" uid="uid://b65rm8y0e6l8q" path="res://Scenes/Abilities/crystal.tscn" id="19_vtdan"]
 
 [sub_resource type="Animation" id="Animation_qne33"]
 resource_name = "Attack1"
@@ -489,7 +491,7 @@ libraries = {
 
 [node name="Hitbox" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
-collision_mask = 0
+collision_mask = 2
 script = ExtResource("10_cyf03")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
@@ -517,9 +519,11 @@ process_mode = 4
 
 [node name="PlayerAttackState" parent="CharacterStateMachine" instance=ExtResource("10_ma0xx")]
 process_mode = 4
+lightningScene = ExtResource("18_p812t")
 
 [node name="PlayerDashState" parent="CharacterStateMachine" instance=ExtResource("13_ip43t")]
 process_mode = 4
+crystalScene = ExtResource("19_vtdan")
 speed = 12.0
 
 [node name="PlayerDeathState" parent="CharacterStateMachine" instance=ExtResource("18_pja3f")]

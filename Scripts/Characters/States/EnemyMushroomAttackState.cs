@@ -24,6 +24,7 @@ public partial class EnemyMushroomAttackState : EnemyState
 
 		targetPosition = target.GlobalPosition;
 		animPlayerNode.AnimationFinished += HandleAnimationFinished;
+		characterNode.OnStun += HandleStun;
 	}
 
 	public override void ExitState()
@@ -31,6 +32,7 @@ public partial class EnemyMushroomAttackState : EnemyState
 		base.ExitState();
 
 		animPlayerNode.AnimationFinished -= HandleAnimationFinished;
+		characterNode.OnStun -= HandleStun;
 	}
 
 	private void PerformHit()

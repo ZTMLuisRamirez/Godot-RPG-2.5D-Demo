@@ -10,4 +10,5 @@ public enum State
     Chase,
     Patrol,
     Death,
+    Stun
 }

@@ -76,4 +76,9 @@ public abstract partial class EnemyState : CharacterState
     {
         stateMachineNode.SwitchState(State.Death);
     }
+
+    protected void HandleStun()
+    {
+        stateMachineNode.SwitchState(State.Stun);
+    }
 }

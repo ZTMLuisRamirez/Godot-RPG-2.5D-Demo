@@ -9,11 +9,16 @@ public abstract partial class Character : CharacterBody3D
 {
     [Export] public StatResource[] stats;
 
-    [ExportGroup("Nodes")]
+    [ExportGroup("Required Nodes")]
     [Export] public Area3D HurtboxNode { get; private set; }
     [Export] public Sprite3D SpriteNode { get; private set; }
     [Export] public AnimationPlayer AnimPlayerNode { get; private set; }
     [Export] public Area3D HitboxNode { get; private set; }
+
+    [ExportGroup("AI Nodes")]
+    [Export] public Area3D ChaseAreaNode { get; private set; }
+    [Export] public NavigationAgent3D AgentNode { get; private set; }
+    [Export] public Area3D AttackAreaNode { get; private set; }
 
     private CollisionShape3D[] hitboxShapeNodes;
 

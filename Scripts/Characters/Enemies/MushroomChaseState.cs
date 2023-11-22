@@ -1,57 +1,51 @@
-using System;
-using System.Linq;
 using Godot;
 using RPG.Characters.States;
 using RPG.General;
+using RPG.Utilities;
 
 namespace RPG.Characters.Enemies;
 
 public partial class MushroomChaseState : EnemyState
 {
 	public override State StateType => State.Chase;
-	private CharacterBody3D player;
 
 	[Export(PropertyHint.Range, "0,20,0.1")] private float speed = 1;
+
+	private CharacterBody3D target;
 
 	public override void EnterState()
 	{
 		base.EnterState();
 
 		characterNode.AnimPlayerNode.Play(GameConstants.RUN_ANIM);
-		player = chaseAreaNode.GetOverlappingBodies()
-			.Where(child => child is CharacterBody3D)
-			.Cast<CharacterBody3D>()
-			.FirstOrDefault();
 
-		if (player == null)
-		{
-			stateMachineNode.SwitchState(State.Return);
-			return;
-		}
+		characterNode.AttackAreaNode.BodyEntered += HandleAttackAreaBodyEntered;
+		characterNode.ChaseAreaNode.BodyExited += HandleChaseAreaBodyExited;
+		characterNode.AgentNode.VelocityComputed += HandleVelocityComputed;
 
-		agentNode.TargetPosition = player.GlobalPosition;
-
-		attackAreaNode.BodyEntered += HandleAttackAreaBodyEntered;
-		chaseAreaNode.BodyExited += HandleChaseAreaBodyExited;
-		agentNode.VelocityComputed += HandleVelocityComputed;
-		characterNode.OnStun += HandleStun;
+		target = characterNode.ChaseAreaNode.GetFirstTarget();
 	}
 
 	public override void ExitState()
 	{
 		base.ExitState();
 
-		attackAreaNode.BodyEntered -= HandleAttackAreaBodyEntered;
-		chaseAreaNode.BodyExited -= HandleChaseAreaBodyExited;
-		agentNode.VelocityComputed -= HandleVelocityComputed;
-		characterNode.OnStun -= HandleStun;
+		characterNode.AttackAreaNode.BodyEntered -= HandleAttackAreaBodyEntered;
+		characterNode.ChaseAreaNode.BodyExited -= HandleChaseAreaBodyExited;
+		characterNode.AgentNode.VelocityComputed -= HandleVelocityComputed;
 	}
 
 	public override void _PhysicsProcess(double delta)
 	{
-		agentNode.TargetPosition = player.GlobalPosition;
+		if (target == null)
+		{
+			stateMachineNode.SwitchState(State.Return);
+			return;
+		}
 
-		agentNode.Velocity = CalculateUnsafeVelocity(speed);
+		characterNode.AgentNode.TargetPosition = target.GlobalPosition;
+
+		characterNode.AgentNode.Velocity = CalculateUnsafeVelocity(speed);
 	}
 
 	private void HandleVelocityComputed(Vector3 safeVelocity)

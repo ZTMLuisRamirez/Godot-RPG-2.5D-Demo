@@ -1,8 +1,7 @@
 using Godot;
 using RPG.Characters.States;
 using RPG.General;
-using System;
-using System.Linq;
+using RPG.Utilities;
 
 namespace RPG.Characters.Enemies;
 
@@ -19,38 +18,32 @@ public partial class MushroomAttackState : EnemyState
 		characterNode.AnimPlayerNode.Play(GameConstants.ATTACK_ANIM);
 		characterNode.Velocity = Vector3.Zero;
 
-		var target = attackAreaNode.GetOverlappingBodies()
-			.Where(child => child is CharacterBody3D)
-			.Cast<CharacterBody3D>()
-			.FirstOrDefault();
+		var target = characterNode.AttackAreaNode.GetFirstTarget();
 
 		targetPosition = target.GlobalPosition;
 		characterNode.AnimPlayerNode.AnimationFinished += HandleAnimationFinished;
-		characterNode.OnStun += HandleStun;
 	}
 
 	public override void ExitState()
 	{
 		base.ExitState();
 
+		characterNode.ToggleHitbox(true);
+
 		characterNode.AnimPlayerNode.AnimationFinished -= HandleAnimationFinished;
-		characterNode.OnStun -= HandleStun;
 	}
 
 	private void PerformHit()
 	{
-		hitboxShapeNode.Disabled = false;
-		hitboxNode.GlobalPosition = targetPosition;
+		characterNode.ToggleHitbox(false);
+		characterNode.HitboxNode.GlobalPosition = targetPosition;
 	}
 
 	private void HandleAnimationFinished(StringName animName)
 	{
-		hitboxShapeNode.Disabled = true;
+		characterNode.ToggleHitbox(true);
 
-		var target = attackAreaNode.GetOverlappingBodies()
-			.Where(child => child is CharacterBody3D)
-			.Cast<CharacterBody3D>()
-			.FirstOrDefault();
+		var target = characterNode.AttackAreaNode.GetFirstTarget();
 
 		if (target == null)
 		{

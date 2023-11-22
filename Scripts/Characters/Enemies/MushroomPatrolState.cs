@@ -1,7 +1,6 @@
 using Godot;
 using RPG.Characters.States;
 using RPG.General;
-using System;
 
 namespace RPG.Characters.Enemies;
 
@@ -31,28 +30,29 @@ public partial class MushroomPatrolState : EnemyState
 		base.EnterState();
 
 		pointIndex = 0;
-		agentNode.TargetPosition = GetPointGlobalPosition();
+		characterNode.AgentNode.TargetPosition = GetPointGlobalPosition();
 		characterNode.AnimPlayerNode.Play(GameConstants.IDLE_ANIM);
 
-		chaseAreaNode.BodyEntered += HandleChaseAreaBodyEntered;
-		agentNode.NavigationFinished += HandleNavigationFinished;
-		agentNode.VelocityComputed += HandleVelocityComputed;
+		characterNode.ChaseAreaNode.BodyEntered += HandleChaseAreaBodyEntered;
+		characterNode.AgentNode.NavigationFinished += HandleNavigationFinished;
+		characterNode.AgentNode.VelocityComputed += HandleVelocityComputed;
 	}
 
 	public override void ExitState()
 	{
 		base.ExitState();
 
-		chaseAreaNode.BodyEntered -= HandleChaseAreaBodyEntered;
-		agentNode.NavigationFinished -= HandleNavigationFinished;
-		agentNode.VelocityComputed -= HandleVelocityComputed;
+		characterNode.ChaseAreaNode.BodyEntered -= HandleChaseAreaBodyEntered;
+		characterNode.AgentNode.NavigationFinished -= HandleNavigationFinished;
+		characterNode.AgentNode.VelocityComputed -= HandleVelocityComputed;
+		idleTimerNode.Stop();
 	}
 
 	public override void _PhysicsProcess(double delta)
 	{
 		if (!idleTimerNode.IsStopped()) return;
 
-		agentNode.Velocity = CalculateUnsafeVelocity(speed);
+		characterNode.AgentNode.Velocity = CalculateUnsafeVelocity(speed);
 	}
 
 	private Vector3 GetPointGlobalPosition()
@@ -81,7 +81,7 @@ public partial class MushroomPatrolState : EnemyState
 	{
 		pointIndex = Mathf.Wrap(pointIndex + 1, 0, points.Length);
 
-		agentNode.TargetPosition = GetPointGlobalPosition();
+		characterNode.AgentNode.TargetPosition = GetPointGlobalPosition();
 
 		characterNode.AnimPlayerNode.Play(GameConstants.RUN_ANIM);
 	}

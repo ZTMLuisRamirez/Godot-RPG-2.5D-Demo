@@ -1,7 +1,7 @@
+using System;
 using Godot;
 using RPG.Characters.States;
 using RPG.General;
-using System;
 
 namespace RPG.Characters.Enemies;
 
@@ -9,27 +9,36 @@ public partial class MushroomIdleState : EnemyState
 {
 	public override State StateType => State.Idle;
 
+	[Export] private Timer durationTimer;
+
 	public override void EnterState()
 	{
 		base.EnterState();
 
 		characterNode.AnimPlayerNode.Play(GameConstants.IDLE_ANIM);
-		chaseAreaNode.BodyEntered += HandleChaseAreaBodyEntered;
+
+		durationTimer.Timeout += HandleTimeout;
+		durationTimer.Start();
 	}
 
 	public override void ExitState()
 	{
 		base.ExitState();
 
-		chaseAreaNode.BodyEntered -= HandleChaseAreaBodyEntered;
+		durationTimer.Timeout -= HandleTimeout;
+		durationTimer.Stop();
 	}
 
-	public override void _Process(double delta)
+	public override void _PhysicsProcess(double delta)
 	{
-		if (characterNode.GlobalPosition.DistanceTo(initialPathPosition) > 1.2f)
+		if (characterNode.ChaseAreaNode.HasOverlappingBodies())
 		{
-			stateMachineNode.SwitchState(State.Return);
-			return;
+			stateMachineNode.SwitchState(State.Chase);
 		}
+	}
+
+	private void HandleTimeout()
+	{
+		stateMachineNode.SwitchState(State.Return);
 	}
 }

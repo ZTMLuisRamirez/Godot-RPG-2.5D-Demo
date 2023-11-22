@@ -15,7 +15,7 @@ public partial class IdleState : PlayerState
         characterNode.AnimPlayerNode.Play(GameConstants.IDLE_ANIM);
     }
 
-    public override void _Process(double delta)
+    public override void _PhysicsProcess(double delta)
     {
         var direction = GetMoveInput();
 

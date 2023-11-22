@@ -1,10 +1,8 @@
 using Godot;
-using RPG.Characters.Enemies;
+using RPG.Characters.States;
 using RPG.General;
-using System;
-using System.Reflection;
 
-namespace RPG.Characters.States;
+namespace RPG.Characters.Enemies;
 
 public partial class MushroomDeathState : EnemyState
 {

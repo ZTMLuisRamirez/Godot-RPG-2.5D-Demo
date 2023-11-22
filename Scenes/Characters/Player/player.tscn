@@ -515,18 +515,13 @@ shape = ExtResource("10_xmcpq")
 [node name="CharacterStateMachine" parent="." instance=ExtResource("9_8icjg")]
 
 [node name="MoveState" parent="CharacterStateMachine" instance=ExtResource("10_kc1bd")]
-process_mode = 4
 
 [node name="IdleState" parent="CharacterStateMachine" instance=ExtResource("10_nxgb6")]
-process_mode = 4
 
 [node name="AttackState" parent="CharacterStateMachine" instance=ExtResource("10_ma0xx")]
-process_mode = 4
 lightningScene = ExtResource("18_p812t")
 
 [node name="DashState" parent="CharacterStateMachine" instance=ExtResource("13_ip43t")]
-process_mode = 4
 crystalScene = ExtResource("19_vtdan")
 
 [node name="DeathState" parent="CharacterStateMachine" instance=ExtResource("18_pja3f")]
-process_mode = 4

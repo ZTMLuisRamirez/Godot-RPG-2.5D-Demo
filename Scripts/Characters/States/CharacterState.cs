@@ -15,16 +15,23 @@ public abstract partial class CharacterState : Node
     {
         characterNode = GetOwner<Character>();
         stateMachineNode = GetParent<StateMachine>();
+
+        SetPhysicsProcess(false);
+        SetProcessInput(false);
     }
 
     public virtual void EnterState()
     {
-        ProcessMode = Node.ProcessModeEnum.Inherit;
+        // ProcessMode = Node.ProcessModeEnum.Inherit;
+        SetPhysicsProcess(true);
+        SetProcessInput(true);
     }
 
     public virtual void ExitState()
     {
-        ProcessMode = Node.ProcessModeEnum.Disabled;
+        // ProcessMode = Node.ProcessModeEnum.Disabled;
+        SetPhysicsProcess(false);
+        SetProcessInput(false);
     }
 
     protected void Flip()

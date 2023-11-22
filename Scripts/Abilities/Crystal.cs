@@ -1,9 +1,5 @@
 using Godot;
-using RPG.Characters;
 using RPG.General;
-using System;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace RPG.Abilities;
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=32 format=3 uid="uid://dcgiukagadlup"]
 
 [ext_resource type="Texture2D" uid="uid://dx4tdi36hvogf" path="res://Assets/Sprites/Characters/EnemyMushroom/Idle.png" id="1_1rtej"]
-[ext_resource type="Script" path="res://Scripts/Characters/Enemy.cs" id="1_kyfww"]
+[ext_resource type="Script" path="res://Scripts/Characters/Enemies/Enemy.cs" id="1_o67ka"]
 [ext_resource type="Texture2D" uid="uid://bo1qfokwjbeqg" path="res://Assets/Sprites/Characters/EnemyMushroom/Attack2.png" id="2_7qkpu"]
 [ext_resource type="Script" path="res://Scripts/Stats/StatResource.cs" id="2_juh0l"]
 [ext_resource type="Resource" uid="uid://c0j6y3n2a7mv7" path="res://Scenes/Characters/enemy_mushroom_health_stat.tres" id="2_ljy4f"]
@@ -306,15 +306,18 @@ radius = 0.7
 [sub_resource type="SphereShape3D" id="SphereShape3D_ect51"]
 radius = 0.25
 
-[node name="Mushroom" type="CharacterBody3D" node_paths=PackedStringArray("HurtboxNode", "SpriteNode", "AnimPlayerNode", "HitboxNode")]
+[node name="Mushroom" type="CharacterBody3D" node_paths=PackedStringArray("HurtboxNode", "SpriteNode", "AnimPlayerNode", "HitboxNode", "ChaseAreaNode", "AgentNode", "AttackAreaNode")]
 collision_layer = 2
 collision_mask = 5
-script = ExtResource("1_kyfww")
+script = ExtResource("1_o67ka")
 stats = Array[Object]([ExtResource("2_ljy4f"), SubResource("Resource_roxkf")])
 HurtboxNode = NodePath("Hurtbox")
 SpriteNode = NodePath("Sprite3D")
 AnimPlayerNode = NodePath("AnimationPlayer")
 HitboxNode = NodePath("Hitbox")
+ChaseAreaNode = NodePath("ChaseArea")
+AgentNode = NodePath("NavigationAgent3D")
+AttackAreaNode = NodePath("AttackArea")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.62593, 0, 0, 0, 0.547207, 0, 0, 0, 0.5771, 0, 0, 0)
@@ -369,22 +372,15 @@ shape = ExtResource("6_mg2bp")
 [node name="StateMachine" parent="." instance=ExtResource("6_anl2t")]
 
 [node name="MushroomIdleState" parent="StateMachine" instance=ExtResource("7_koi1t")]
-process_mode = 4
 
 [node name="MushroomReturnState" parent="StateMachine" instance=ExtResource("8_yjl6h")]
-process_mode = 4
 
 [node name="MushroomPatrolState" parent="StateMachine" instance=ExtResource("9_5flmd")]
-process_mode = 4
 
 [node name="MushroomChaseState" parent="StateMachine" instance=ExtResource("10_strsy")]
-process_mode = 4
 
 [node name="MushroomAttackState" parent="StateMachine" instance=ExtResource("11_aexpb")]
-process_mode = 4
 
 [node name="MushroomDeathState" parent="StateMachine" instance=ExtResource("14_r1sgc")]
-process_mode = 4
 
 [node name="MushroomStunState" parent="StateMachine" instance=ExtResource("18_cvjxh")]
-process_mode = 4

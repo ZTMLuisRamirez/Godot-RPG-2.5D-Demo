@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_ksfyl")
-StatType = 3
+StatType = 1
 StatValue = 20.0

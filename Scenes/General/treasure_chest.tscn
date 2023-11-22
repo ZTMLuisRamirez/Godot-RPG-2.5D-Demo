@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dp00e8r1a27ku"]
+[gd_scene load_steps=6 format=3 uid="uid://dp00e8r1a27ku"]
 
 [ext_resource type="PackedScene" uid="uid://bnx2mdiapjpoc" path="res://Scenes/General/interaction_icon.tscn" id="1_7jjrk"]
-[ext_resource type="Script" path="res://Scripts/Inventory/TreasureChest.cs" id="1_o0vnp"]
+[ext_resource type="Script" path="res://Scripts/Stats/TreasureChest.cs" id="1_o0vnp"]
+[ext_resource type="Resource" uid="uid://dkqaowqddpord" path="res://Scenes/Resources/damage_bonus.tres" id="2_6bvvp"]
 [ext_resource type="Texture2D" uid="uid://c457ghv85anln" path="res://Assets/Sprites/General/16x16.png" id="2_6ok3o"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w7oo4"]
@@ -11,6 +12,7 @@ size = Vector3(0.203477, 0.1799, 0.141572)
 collision_layer = 8
 collision_mask = 0
 script = ExtResource("1_o0vnp")
+bonus = ExtResource("2_6bvvp")
 
 [node name="InteractionIcon" parent="." instance=ExtResource("1_7jjrk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0254672, 0)

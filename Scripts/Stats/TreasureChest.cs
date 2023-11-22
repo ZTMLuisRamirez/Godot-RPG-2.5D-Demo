@@ -1,8 +1,7 @@
 using Godot;
 using RPG.General;
-using RPG.Stats;
 
-namespace RPG.Inventory;
+namespace RPG.Stats;
 
 public partial class TreasureChest : StaticBody3D
 {

@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_q1ptu")
-StatType = 3
+StatType = 1
 StatValue = 100.0

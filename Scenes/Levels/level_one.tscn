@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=3 uid="uid://c8n62stlsw7dn"]
+[gd_scene load_steps=106 format=3 uid="uid://c8n62stlsw7dn"]
 
 [ext_resource type="PackedScene" uid="uid://blyl84v3kerqe" path="res://Scenes/General/ui.tscn" id="1_2urus"]
 [ext_resource type="Script" path="res://Scripts/General/LevelManager.cs" id="1_ayy7h"]
@@ -28,7 +28,6 @@
 [ext_resource type="ArrayMesh" uid="uid://osd1rfqcsssd" path="res://Assets/Models/Dungeon/obj/bottle_C_brown.obj" id="14_pa1ni"]
 [ext_resource type="PackedScene" uid="uid://s3eq3ruprqmh" path="res://Scenes/General/torch.tscn" id="16_1m4fk"]
 [ext_resource type="PackedScene" uid="uid://dp00e8r1a27ku" path="res://Scenes/General/treasure_chest.tscn" id="26_2j8tg"]
-[ext_resource type="Resource" uid="uid://dkqaowqddpord" path="res://Scenes/Resources/damage_bonus.tres" id="30_tv50r"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_dw6pr"]
 rayleigh_color = Color(0.0588235, 0, 0.976471, 1)
@@ -203,7 +202,7 @@ point_count = 5
 
 [sub_resource type="Resource" id="Resource_fb43f"]
 script = ExtResource("12_jv51n")
-StatType = 3
+StatType = 1
 StatValue = 20.0
 
 [sub_resource type="Resource" id="Resource_roxkf"]
@@ -221,7 +220,7 @@ point_count = 5
 
 [sub_resource type="Resource" id="Resource_3lboq"]
 script = ExtResource("12_jv51n")
-StatType = 3
+StatType = 1
 StatValue = 20.0
 
 [sub_resource type="Curve3D" id="Curve3D_um2qi"]
@@ -234,7 +233,7 @@ point_count = 5
 
 [sub_resource type="Resource" id="Resource_f5wjh"]
 script = ExtResource("12_jv51n")
-StatType = 3
+StatType = 1
 StatValue = 20.0
 
 [sub_resource type="Resource" id="Resource_4l5v8"]
@@ -252,7 +251,7 @@ point_count = 5
 
 [sub_resource type="Resource" id="Resource_hbto3"]
 script = ExtResource("12_jv51n")
-StatType = 3
+StatType = 1
 StatValue = 20.0
 
 [sub_resource type="Resource" id="Resource_btxen"]
@@ -270,7 +269,7 @@ point_count = 5
 
 [sub_resource type="Resource" id="Resource_156to"]
 script = ExtResource("12_jv51n")
-StatType = 3
+StatType = 1
 StatValue = 20.0
 
 [sub_resource type="Resource" id="Resource_516g7"]
@@ -288,7 +287,7 @@ point_count = 5
 
 [sub_resource type="Resource" id="Resource_mlxog"]
 script = ExtResource("12_jv51n")
-StatType = 3
+StatType = 1
 StatValue = 20.0
 
 [sub_resource type="Resource" id="Resource_rts2j"]
@@ -306,7 +305,7 @@ point_count = 5
 
 [sub_resource type="Resource" id="Resource_k5a0u"]
 script = ExtResource("12_jv51n")
-StatType = 3
+StatType = 1
 StatValue = 20.0
 
 [sub_resource type="Resource" id="Resource_skxyu"]
@@ -324,7 +323,7 @@ point_count = 5
 
 [sub_resource type="Resource" id="Resource_kp8p2"]
 script = ExtResource("12_jv51n")
-StatType = 3
+StatType = 1
 StatValue = 20.0
 
 [sub_resource type="Resource" id="Resource_icnsp"]
@@ -342,7 +341,7 @@ point_count = 5
 
 [sub_resource type="Resource" id="Resource_2crqq"]
 script = ExtResource("12_jv51n")
-StatType = 3
+StatType = 1
 StatValue = 20.0
 
 [sub_resource type="Resource" id="Resource_ygu3m"]
@@ -360,7 +359,7 @@ point_count = 5
 
 [sub_resource type="Resource" id="Resource_5kfdx"]
 script = ExtResource("12_jv51n")
-StatType = 3
+StatType = 1
 StatValue = 20.0
 
 [sub_resource type="Resource" id="Resource_82c65"]
@@ -1210,4 +1209,3 @@ stats = Array[Object]([SubResource("Resource_5kfdx"), SubResource("Resource_82c6
 
 [node name="TreasureChest" parent="." instance=ExtResource("26_2j8tg")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 26.1734, 4.55177, -33.0444)
-bonus = ExtResource("30_tv50r")

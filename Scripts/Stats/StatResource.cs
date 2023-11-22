@@ -3,21 +3,13 @@ using Godot;
 
 namespace RPG.Stats;
 
-public enum Stat
-{
-    Strength,
-    Reflex, // Evasion
-    Armor,
-    Health,
-}
-
 [GlobalClass]
 public partial class StatResource : Resource
 {
     public event Action OnZeroOrNegative;
     public event Action OnUpdate;
 
-    [Export] public Stat StatType { get; set; }
+    [Export] public Stat StatType { get; private set; }
 
     private float _statValue;
     [Export]

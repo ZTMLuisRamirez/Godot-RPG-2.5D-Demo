@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace RPG.Characters.Enemies;
 
-public partial class EnemyMushroomAttackState : EnemyState
+public partial class MushroomAttackState : EnemyState
 {
 	public override State StateType => State.Attack;
 

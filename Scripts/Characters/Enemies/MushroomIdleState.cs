@@ -5,7 +5,7 @@ using System;
 
 namespace RPG.Characters.Enemies;
 
-public partial class EnemyMushroomIdleState : EnemyState
+public partial class MushroomIdleState : EnemyState
 {
 	public override State StateType => State.Idle;
 

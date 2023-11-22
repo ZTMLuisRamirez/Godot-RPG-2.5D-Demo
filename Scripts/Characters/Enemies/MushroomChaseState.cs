@@ -6,7 +6,7 @@ using RPG.General;
 
 namespace RPG.Characters.Enemies;
 
-public partial class EnemyMushroomChaseState : EnemyState
+public partial class MushroomChaseState : EnemyState
 {
 	public override State StateType => State.Chase;
 	private CharacterBody3D player;

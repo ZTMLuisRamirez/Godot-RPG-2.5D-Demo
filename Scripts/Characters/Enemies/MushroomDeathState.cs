@@ -6,7 +6,7 @@ using System.Reflection;
 
 namespace RPG.Characters.States;
 
-public partial class EnemyMushroomDeathState : EnemyState
+public partial class MushroomDeathState : EnemyState
 {
 	public override State StateType => State.Death;
 

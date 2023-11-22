@@ -5,7 +5,7 @@ using System;
 
 namespace RPG.Characters.Enemies;
 
-public partial class EnemyMushroomPatrolState : EnemyState
+public partial class MushroomPatrolState : EnemyState
 {
 	public override State StateType => State.Patrol;
 

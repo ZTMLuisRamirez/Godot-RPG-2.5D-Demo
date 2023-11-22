@@ -5,7 +5,7 @@ using System;
 
 namespace RPG.Characters.Enemies;
 
-public partial class EnemyMushroomReturnState : EnemyState
+public partial class MushroomReturnState : EnemyState
 {
     public override State StateType => State.Return;
     [Export(PropertyHint.Range, "0,20,0.1")] private float speed = 1;

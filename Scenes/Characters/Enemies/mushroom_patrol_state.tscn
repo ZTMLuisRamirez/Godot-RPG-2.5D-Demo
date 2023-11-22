@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://2315iousjww3"]
+
+[ext_resource type="Script" path="res://Scripts/Characters/Enemies/MushroomPatrolState.cs" id="1_ysadd"]
+
+[node name="MushroomPatrolState" type="Node"]
+script = ExtResource("1_ysadd")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

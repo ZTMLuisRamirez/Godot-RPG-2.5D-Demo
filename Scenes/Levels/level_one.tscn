@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://blyl84v3kerqe" path="res://Scenes/General/ui.tscn" id="1_2urus"]
 [ext_resource type="Script" path="res://Scripts/General/LevelManager.cs" id="1_ayy7h"]
-[ext_resource type="PackedScene" uid="uid://dupcd37r2l3p8" path="res://Scenes/Characters/player.tscn" id="1_nkxw5"]
+[ext_resource type="PackedScene" uid="uid://dupcd37r2l3p8" path="res://Scenes/Characters/Player/player.tscn" id="1_nkxw5"]
 [ext_resource type="Script" path="res://Scripts/General/Camera.cs" id="2_fs4gi"]
 [ext_resource type="MeshLibrary" uid="uid://d26o0le631dto" path="res://Scenes/General/tiles.tres" id="2_vap6c"]
-[ext_resource type="PackedScene" uid="uid://dcgiukagadlup" path="res://Scenes/Characters/enemy_mushroom.tscn" id="3_6uavi"]
+[ext_resource type="PackedScene" uid="uid://dcgiukagadlup" path="res://Scenes/Characters/Enemies/mushroom.tscn" id="3_6uavi"]
 [ext_resource type="ArrayMesh" uid="uid://bko0cgacao0m0" path="res://Assets/Models/Dungeon/obj/banner_shield_blue.obj" id="3_n6pjo"]
 [ext_resource type="Texture2D" uid="uid://b3hk5yr0rlukr" path="res://Assets/Models/Dungeon/texture/dungeon_texture.png" id="4_jc4cf"]
 [ext_resource type="ArrayMesh" uid="uid://n04r0elwcgoq" path="res://Assets/Models/Dungeon/obj/banner_shield_brown.obj" id="5_vbvmo"]

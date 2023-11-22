@@ -5,7 +5,7 @@ using System;
 
 namespace RPG.Characters.Enemies;
 
-public partial class EnemyMushroomStunState : EnemyState
+public partial class MushroomStunState : EnemyState
 {
 
 	public override State StateType => State.Stun;

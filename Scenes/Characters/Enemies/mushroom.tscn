@@ -8,16 +8,16 @@
 [ext_resource type="Texture2D" uid="uid://bea3sjqpsi5d2" path="res://Assets/Sprites/Characters/EnemyMushroom/Run.png" id="2_vkkfa"]
 [ext_resource type="Texture2D" uid="uid://c47cy3moxfufu" path="res://Assets/Sprites/Characters/EnemyMushroom/Death.png" id="3_bpoy0"]
 [ext_resource type="Texture2D" uid="uid://b38o5kril5ddd" path="res://Assets/Sprites/Characters/EnemyMushroom/Take Hit.png" id="5_okvbl"]
-[ext_resource type="PackedScene" uid="uid://u54fa43bsuid" path="res://Scenes/Characters/character_state_machine.tscn" id="6_anl2t"]
+[ext_resource type="PackedScene" uid="uid://u54fa43bsuid" path="res://Scenes/Characters/state_machine.tscn" id="6_anl2t"]
 [ext_resource type="Shape3D" uid="uid://cqiaht8jdu5km" path="res://Scenes/Characters/mushroom_shape.tres" id="6_mg2bp"]
-[ext_resource type="PackedScene" uid="uid://bqswetojya55o" path="res://Scenes/Characters/States/enemy_mushroom_idle_state.tscn" id="7_koi1t"]
+[ext_resource type="PackedScene" uid="uid://bqswetojya55o" path="res://Scenes/Characters/Enemies/mushroom_idle_state.tscn" id="7_koi1t"]
 [ext_resource type="Script" path="res://Scripts/Characters/Hitbox.cs" id="8_waq4o"]
-[ext_resource type="PackedScene" uid="uid://viqlrknl0vcv" path="res://Scenes/Characters/States/enemy_mushroom_return_state.tscn" id="8_yjl6h"]
-[ext_resource type="PackedScene" uid="uid://2315iousjww3" path="res://Scenes/Characters/States/enemy_mushroom_patrol_state.tscn" id="9_5flmd"]
-[ext_resource type="PackedScene" uid="uid://b7vadrrylha0h" path="res://Scenes/Characters/States/enemy_mushroom_chase_state.tscn" id="10_strsy"]
-[ext_resource type="PackedScene" uid="uid://ygtovvlntewq" path="res://Scenes/Characters/States/enemy_mushroom_attack_state.tscn" id="11_aexpb"]
-[ext_resource type="PackedScene" uid="uid://jgv0s8y71ypa" path="res://Scenes/Characters/States/enemy_mushroom_death_state.tscn" id="14_r1sgc"]
-[ext_resource type="PackedScene" uid="uid://b5ode5e34eoco" path="res://Scenes/Characters/States/enemy_mushroom_stun_state.tscn" id="18_cvjxh"]
+[ext_resource type="PackedScene" uid="uid://viqlrknl0vcv" path="res://Scenes/Characters/Enemies/mushroom_return_state.tscn" id="8_yjl6h"]
+[ext_resource type="PackedScene" uid="uid://2315iousjww3" path="res://Scenes/Characters/Enemies/mushroom_patrol_state.tscn" id="9_5flmd"]
+[ext_resource type="PackedScene" uid="uid://b7vadrrylha0h" path="res://Scenes/Characters/Enemies/mushroom_chase_state.tscn" id="10_strsy"]
+[ext_resource type="PackedScene" uid="uid://ygtovvlntewq" path="res://Scenes/Characters/Enemies/mushroom_attack_state.tscn" id="11_aexpb"]
+[ext_resource type="PackedScene" uid="uid://jgv0s8y71ypa" path="res://Scenes/Characters/Enemies/mushroom_death_state.tscn" id="14_r1sgc"]
+[ext_resource type="PackedScene" uid="uid://b5ode5e34eoco" path="res://Scenes/Characters/Enemies/mushroom_stun_state.tscn" id="18_cvjxh"]
 
 [sub_resource type="Resource" id="Resource_roxkf"]
 script = ExtResource("2_juh0l")
@@ -73,7 +73,7 @@ tracks/2/keys = {
 tracks/3/type = "method"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CharacterStateMachine/EnemyMushroomAttackState")
+tracks/3/path = NodePath("StateMachine/MushroomAttackState")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -306,15 +306,15 @@ radius = 0.7
 [sub_resource type="SphereShape3D" id="SphereShape3D_ect51"]
 radius = 0.25
 
-[node name="EnemyMushroom" type="CharacterBody3D" node_paths=PackedStringArray("HurtboxNode", "SpriteNode", "AnimPlayerNode", "HitboxNode")]
+[node name="Mushroom" type="CharacterBody3D" node_paths=PackedStringArray("HurtboxNode", "SpriteNode", "AnimPlayerNode", "HitboxNode")]
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_kyfww")
+stats = Array[Object]([ExtResource("2_ljy4f"), SubResource("Resource_roxkf")])
 HurtboxNode = NodePath("Hurtbox")
 SpriteNode = NodePath("Sprite3D")
 AnimPlayerNode = NodePath("AnimationPlayer")
 HitboxNode = NodePath("Hitbox")
-stats = Array[Object]([ExtResource("2_ljy4f"), SubResource("Resource_roxkf")])
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.62593, 0, 0, 0, 0.547207, 0, 0, 0, 0.5771, 0, 0, 0)
@@ -366,25 +366,25 @@ collision_layer = 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
 shape = ExtResource("6_mg2bp")
 
-[node name="CharacterStateMachine" parent="." instance=ExtResource("6_anl2t")]
+[node name="StateMachine" parent="." instance=ExtResource("6_anl2t")]
 
-[node name="EnemyMushroomIdleState" parent="CharacterStateMachine" instance=ExtResource("7_koi1t")]
+[node name="MushroomIdleState" parent="StateMachine" instance=ExtResource("7_koi1t")]
 process_mode = 4
 
-[node name="EnemyMushroomReturnState" parent="CharacterStateMachine" instance=ExtResource("8_yjl6h")]
+[node name="MushroomReturnState" parent="StateMachine" instance=ExtResource("8_yjl6h")]
 process_mode = 4
 
-[node name="EnemyMushroomPatrolState" parent="CharacterStateMachine" instance=ExtResource("9_5flmd")]
+[node name="MushroomPatrolState" parent="StateMachine" instance=ExtResource("9_5flmd")]
 process_mode = 4
 
-[node name="EnemyMushroomChaseState" parent="CharacterStateMachine" instance=ExtResource("10_strsy")]
+[node name="MushroomChaseState" parent="StateMachine" instance=ExtResource("10_strsy")]
 process_mode = 4
 
-[node name="EnemyMushroomAttackState" parent="CharacterStateMachine" instance=ExtResource("11_aexpb")]
+[node name="MushroomAttackState" parent="StateMachine" instance=ExtResource("11_aexpb")]
 process_mode = 4
 
-[node name="EnemyMushroomDeathState" parent="CharacterStateMachine" instance=ExtResource("14_r1sgc")]
+[node name="MushroomDeathState" parent="StateMachine" instance=ExtResource("14_r1sgc")]
 process_mode = 4
 
-[node name="EnemyMushroomStunState" parent="CharacterStateMachine" instance=ExtResource("18_cvjxh")]
+[node name="MushroomStunState" parent="StateMachine" instance=ExtResource("18_cvjxh")]
 process_mode = 4

@@ -1,4 +1,3 @@
-using System;
 using Godot;
 using RPG.Characters.States;
 using RPG.General;

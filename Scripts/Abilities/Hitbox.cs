@@ -1,16 +1,17 @@
 using Godot;
 using RPG.Characters;
-using System;
+
+namespace RPG.Abilities;
 
 public partial class Hitbox : Area3D, IHitbox
 {
-	public bool CanStun()
+	private Ability abilityNode;
+
+	public override void _Ready()
 	{
-		return true;
+		abilityNode = GetOwner<Ability>();
 	}
 
-	public float GetDamage()
-	{
-		return 5;
-	}
+	public bool CanStun() => abilityNode.CanStun;
+	public float GetDamage() => abilityNode.Damage;
 }

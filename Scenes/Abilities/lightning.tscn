@@ -107,8 +107,10 @@ _data = {
 height = 3.67761
 radius = 0.249933
 
-[node name="Lightning" type="Node3D"]
+[node name="Lightning" type="Node3D" node_paths=PackedStringArray("animationPlayerNode", "collisionNode")]
 script = ExtResource("1_8d3bb")
+animationPlayerNode = NodePath("AnimationPlayer")
+collisionNode = NodePath("Hitbox/CollisionShape3D")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)

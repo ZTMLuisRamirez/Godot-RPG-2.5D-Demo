@@ -43,7 +43,7 @@ public abstract partial class Character : CharacterBody3D
     public void ToggleHitbox(bool flag)
     {
         hitboxShapeNodes?.ToList()
-            .ForEach(shapeNode => shapeNode.Disabled = flag);
+            .ForEach(shapeNode => shapeNode.SetDeferred("disabled", flag));
     }
 
     protected void RaiseStun() => OnStun?.Invoke();

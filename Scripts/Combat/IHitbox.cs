@@ -1,4 +1,4 @@
-namespace RPG.Characters;
+namespace RPG.Combat;
 
 public interface IHitbox
 {

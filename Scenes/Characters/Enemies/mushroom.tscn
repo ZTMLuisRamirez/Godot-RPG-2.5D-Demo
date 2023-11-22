@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://u54fa43bsuid" path="res://Scenes/Characters/state_machine.tscn" id="6_anl2t"]
 [ext_resource type="Shape3D" uid="uid://cqiaht8jdu5km" path="res://Scenes/Characters/mushroom_shape.tres" id="6_mg2bp"]
 [ext_resource type="PackedScene" uid="uid://bqswetojya55o" path="res://Scenes/Characters/Enemies/mushroom_idle_state.tscn" id="7_koi1t"]
-[ext_resource type="Script" path="res://Scripts/Characters/Hitbox.cs" id="8_waq4o"]
+[ext_resource type="Script" path="res://Scripts/Combat/Hitbox.cs" id="8_waq4o"]
 [ext_resource type="PackedScene" uid="uid://viqlrknl0vcv" path="res://Scenes/Characters/Enemies/mushroom_return_state.tscn" id="8_yjl6h"]
 [ext_resource type="PackedScene" uid="uid://2315iousjww3" path="res://Scenes/Characters/Enemies/mushroom_patrol_state.tscn" id="9_5flmd"]
 [ext_resource type="PackedScene" uid="uid://b7vadrrylha0h" path="res://Scenes/Characters/Enemies/mushroom_chase_state.tscn" id="10_strsy"]

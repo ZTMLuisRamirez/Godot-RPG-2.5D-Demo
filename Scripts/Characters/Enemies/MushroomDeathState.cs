@@ -20,6 +20,6 @@ public partial class MushroomDeathState : EnemyState
 	{
 		GameEvents.RaiseEnemyDefeated();
 
-		characterNode.CallDeferred("queue_free");
+		characterNode.QueueFree();
 	}
 }

@@ -1,4 +1,5 @@
 using Godot;
+using RPG.Combat;
 using RPG.Stats;
 
 namespace RPG.Characters.Enemies;

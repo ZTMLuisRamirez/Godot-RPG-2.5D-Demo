@@ -1,5 +1,5 @@
 using Godot;
-using RPG.Characters;
+using RPG.Combat;
 
 namespace RPG.Abilities;
 

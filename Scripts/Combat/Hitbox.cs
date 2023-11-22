@@ -1,9 +1,8 @@
 using Godot;
 using RPG.Characters;
 using RPG.Stats;
-using System;
 
-namespace RPG.Characters;
+namespace RPG.Combat;
 
 public partial class Hitbox : Area3D, IHitbox
 {

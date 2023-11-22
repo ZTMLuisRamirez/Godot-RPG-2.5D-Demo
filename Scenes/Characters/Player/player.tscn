@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bd0xnw7dq0kp" path="res://Assets/Sprites/Characters/Player/Dashing_KG_1.png" id="7_4eo0f"]
 [ext_resource type="Texture2D" uid="uid://d1jfoj7547kb2" path="res://Assets/Sprites/Characters/Player/Dying_KG_2.png" id="8_ugswn"]
 [ext_resource type="PackedScene" uid="uid://u54fa43bsuid" path="res://Scenes/Characters/state_machine.tscn" id="9_8icjg"]
-[ext_resource type="Script" path="res://Scripts/Characters/Hitbox.cs" id="10_cyf03"]
+[ext_resource type="Script" path="res://Scripts/Combat/Hitbox.cs" id="10_cyf03"]
 [ext_resource type="PackedScene" uid="uid://ctrdvqly71885" path="res://Scenes/Characters/Player/move_state.tscn" id="10_kc1bd"]
 [ext_resource type="PackedScene" uid="uid://g3tsr8w2q0wr" path="res://Scenes/Characters/Player/attack_state.tscn" id="10_ma0xx"]
 [ext_resource type="PackedScene" uid="uid://6xgnhxon50l0" path="res://Scenes/Characters/Player/idle_state.tscn" id="10_nxgb6"]

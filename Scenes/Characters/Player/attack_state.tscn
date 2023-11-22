@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://g3tsr8w2q0wr"]
+
+[ext_resource type="Script" path="res://Scripts/Characters/Player/AttackState.cs" id="1_r4kq5"]
+
+[node name="AttackState" type="Node" node_paths=PackedStringArray("comboTimerNode")]
+script = ExtResource("1_r4kq5")
+comboTimerNode = NodePath("ComboTimer")
+
+[node name="ComboTimer" type="Timer" parent="."]
+process_mode = 3
+wait_time = 2.0
+one_shot = true

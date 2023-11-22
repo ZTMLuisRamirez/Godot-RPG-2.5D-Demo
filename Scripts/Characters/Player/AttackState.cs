@@ -5,35 +5,30 @@ using RPG.General;
 
 namespace RPG.Characters.Player;
 
-public partial class PlayerAttackState : PlayerState
+public partial class AttackState : PlayerState
 {
 	public override State StateType => State.Attack;
 
-	private Timer comboTimerNode;
+	[Export] private PackedScene lightningScene;
+	[Export] private Timer comboTimerNode;
+	[Export] private int comboThreshold = 4;
+
 	private int comboCounter = 1;
-	private float lastAttackTime;
 
 	public override void _Ready()
 	{
 		base._Ready();
 
-		comboTimerNode = GetNode<Timer>("ComboTimer");
-		comboTimerNode.Timeout += HandleTimeout;
-	}
-
-	public override void _PhysicsProcess(double delta)
-	{
-		var direction = GetFacingDirection();
-		characterNode.Velocity = direction * (float)(delta * characterNode.MoveDistance);
-		characterNode.MoveAndSlide();
+		comboTimerNode.Timeout += () => comboCounter = 1;
 	}
 
 	public override void EnterState()
 	{
 		base.EnterState();
 
-		characterNode.AnimPlayerNode.Play($"{GameConstants.ATTACK_ANIM}{comboCounter}");
-
+		characterNode.AnimPlayerNode.Play(
+			$"{GameConstants.ATTACK_ANIM}{comboCounter}"
+		);
 		characterNode.AnimPlayerNode.AnimationFinished += HandleAnimationFinished;
 		characterNode.HitboxNode.BodyEntered += HandleBodyEntered;
 	}
@@ -51,19 +46,10 @@ public partial class PlayerAttackState : PlayerState
 	private void HandleAnimationFinished(StringName animName)
 	{
 		characterNode.ToggleHitbox(true);
-		comboCounter++;
 
-		if (comboCounter > 4)
-		{
-			comboCounter = 1;
-		}
+		comboCounter = Mathf.Wrap(++comboCounter, 1, 5);
 
 		stateMachineNode.SwitchState(State.Idle);
-	}
-
-	private void HandleTimeout()
-	{
-		comboCounter = 1;
 	}
 
 	private void PerformHit()
@@ -79,17 +65,15 @@ public partial class PlayerAttackState : PlayerState
 
 	private void HandleBodyEntered(Node3D body)
 	{
-		if (comboCounter != characterNode.lightningComboThreshold) return;
+		if (comboCounter != comboThreshold) return;
 
 		var enemy = characterNode.HitboxNode.GetOverlappingBodies()
-			.Where(child => child is CharacterBody3D)
-			.Cast<CharacterBody3D>()
+			.Where(child => child is Enemy)
 			.FirstOrDefault();
 
 		if (enemy == null) return;
 
-		// Instantiate Crystal
-		var lightning = characterNode.lightningScene.Instantiate<Node3D>();
+		var lightning = lightningScene.Instantiate<Node3D>();
 		GetTree().CurrentScene.AddChild(lightning);
 		lightning.GlobalPosition = body.GlobalPosition;
 	}

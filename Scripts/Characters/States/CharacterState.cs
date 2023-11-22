@@ -7,14 +7,14 @@ public abstract partial class CharacterState : Node
 {
     public abstract State StateType { get; }
     protected Character characterNode;
-    protected CharacterStateMachine stateMachineNode;
+    protected StateMachine stateMachineNode;
 
     public Func<bool> CanTransition = () => true;
 
     public override void _Ready()
     {
         characterNode = GetOwner<Character>();
-        stateMachineNode = GetParent<CharacterStateMachine>();
+        stateMachineNode = GetParent<StateMachine>();
     }
 
     public virtual void EnterState()

@@ -4,7 +4,7 @@ using RPG.General;
 
 namespace RPG.Characters.Player;
 
-public partial class PlayerIdleState : PlayerState
+public partial class IdleState : PlayerState
 {
     public override State StateType => State.Idle;
 

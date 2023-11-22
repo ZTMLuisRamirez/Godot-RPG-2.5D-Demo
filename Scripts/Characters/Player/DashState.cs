@@ -4,24 +4,21 @@ using RPG.General;
 
 namespace RPG.Characters.Player;
 
-public partial class PlayerDashState : PlayerState
+public partial class DashState : PlayerState
 {
 	public override State StateType => State.Dash;
 
+	[Export] private PackedScene crystalScene;
+	[Export(PropertyHint.Range, "0,20,0.1")] private float speed = 10f;
+	[Export] private Timer dashTimerNode;
+	[Export] private Timer cooldownTimerNode;
+
 	private bool isMoving = false;
 	private Vector3 direction;
-	private Timer dashTimerNode;
-	private Timer cooldownTimerNode;
 
 	public override void _Ready()
 	{
 		base._Ready();
-
-		dashTimerNode = GetNode<Timer>("DashTimer");
-		cooldownTimerNode = GetNode<Timer>("CooldownTimer");
-
-		dashTimerNode.WaitTime = characterNode.DashDuration;
-		cooldownTimerNode.WaitTime = characterNode.DashCooldownDuration;
 
 		dashTimerNode.Timeout += HandleDashTimeout;
 
@@ -38,7 +35,7 @@ public partial class PlayerDashState : PlayerState
 
 	public override void _PhysicsProcess(double delta)
 	{
-		characterNode.Velocity = direction * characterNode.DashSpeed;
+		characterNode.Velocity = direction * speed;
 		characterNode.MoveAndSlide();
 		Flip();
 	}
@@ -54,7 +51,7 @@ public partial class PlayerDashState : PlayerState
 		}
 
 		// Instantiate Crystal
-		var crystal = characterNode.CrystalScene.Instantiate<Node3D>();
+		var crystal = crystalScene.Instantiate<Node3D>();
 		GetTree().CurrentScene.AddChild(crystal);
 		crystal.GlobalPosition = characterNode.GlobalPosition;
 	}

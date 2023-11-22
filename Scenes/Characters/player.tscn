@@ -11,15 +11,15 @@
 [ext_resource type="Texture2D" uid="uid://u2mf7r2tsdn2" path="res://Assets/Sprites/Characters/Player/Attack_KG_4.png" id="6_gk5ng"]
 [ext_resource type="Texture2D" uid="uid://bd0xnw7dq0kp" path="res://Assets/Sprites/Characters/Player/Dashing_KG_1.png" id="7_4eo0f"]
 [ext_resource type="Texture2D" uid="uid://d1jfoj7547kb2" path="res://Assets/Sprites/Characters/Player/Dying_KG_2.png" id="8_ugswn"]
-[ext_resource type="PackedScene" uid="uid://u54fa43bsuid" path="res://Scenes/Characters/character_state_machine.tscn" id="9_8icjg"]
+[ext_resource type="PackedScene" uid="uid://u54fa43bsuid" path="res://Scenes/Characters/state_machine.tscn" id="9_8icjg"]
 [ext_resource type="Script" path="res://Scripts/Characters/Hitbox.cs" id="10_cyf03"]
-[ext_resource type="PackedScene" uid="uid://ctrdvqly71885" path="res://Scenes/Characters/States/player_move_state.tscn" id="10_kc1bd"]
-[ext_resource type="PackedScene" uid="uid://g3tsr8w2q0wr" path="res://Scenes/Characters/States/player_attack_state.tscn" id="10_ma0xx"]
-[ext_resource type="PackedScene" uid="uid://6xgnhxon50l0" path="res://Scenes/Characters/States/player_idle_state.tscn" id="10_nxgb6"]
+[ext_resource type="PackedScene" uid="uid://ctrdvqly71885" path="res://Scenes/Characters/Player/move_state.tscn" id="10_kc1bd"]
+[ext_resource type="PackedScene" uid="uid://g3tsr8w2q0wr" path="res://Scenes/Characters/Player/attack_state.tscn" id="10_ma0xx"]
+[ext_resource type="PackedScene" uid="uid://6xgnhxon50l0" path="res://Scenes/Characters/Player/idle_state.tscn" id="10_nxgb6"]
 [ext_resource type="Shape3D" uid="uid://c2d7ohkjk0vk3" path="res://Scenes/Characters/player_shape.tres" id="10_xmcpq"]
-[ext_resource type="PackedScene" uid="uid://vtod8mygwk3c" path="res://Scenes/Characters/States/player_dash_state.tscn" id="13_ip43t"]
+[ext_resource type="PackedScene" uid="uid://vtod8mygwk3c" path="res://Scenes/Characters/Player/dash_state.tscn" id="13_ip43t"]
 [ext_resource type="PackedScene" uid="uid://cg2j2m4y5ab52" path="res://Scenes/Abilities/lightning.tscn" id="18_p812t"]
-[ext_resource type="PackedScene" uid="uid://b4sw6f2ghh7fx" path="res://Scenes/Characters/States/player_death_state.tscn" id="18_pja3f"]
+[ext_resource type="PackedScene" uid="uid://b4sw6f2ghh7fx" path="res://Scenes/Characters/Player/death_state.tscn" id="18_pja3f"]
 [ext_resource type="PackedScene" uid="uid://b65rm8y0e6l8q" path="res://Scenes/Abilities/crystal.tscn" id="19_vtdan"]
 
 [sub_resource type="Animation" id="Animation_qne33"]
@@ -64,7 +64,7 @@ tracks/2/keys = {
 tracks/3/type = "method"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CharacterStateMachine/PlayerAttackState")
+tracks/3/path = NodePath("CharacterStateMachine/AttackState")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -118,7 +118,7 @@ tracks/2/keys = {
 tracks/3/type = "method"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CharacterStateMachine/PlayerAttackState")
+tracks/3/path = NodePath("CharacterStateMachine/AttackState")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -172,7 +172,7 @@ tracks/2/keys = {
 tracks/3/type = "method"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CharacterStateMachine/PlayerAttackState")
+tracks/3/path = NodePath("CharacterStateMachine/AttackState")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -226,7 +226,7 @@ tracks/2/keys = {
 tracks/3/type = "method"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CharacterStateMachine/PlayerAttackState")
+tracks/3/path = NodePath("CharacterStateMachine/AttackState")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -281,7 +281,7 @@ tracks/2/keys = {
 tracks/3/type = "method"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CharacterStateMachine/PlayerDashState")
+tracks/3/path = NodePath("CharacterStateMachine/DashState")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -481,8 +481,6 @@ HurtboxNode = NodePath("Hurtbox")
 SpriteNode = NodePath("Sprite3D")
 AnimPlayerNode = NodePath("AnimationPlayer")
 HitboxNode = NodePath("Hitbox")
-CrystalScene = ExtResource("19_vtdan")
-lightningScene = ExtResource("18_p812t")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 alpha_cut = 2
@@ -516,17 +514,19 @@ shape = ExtResource("10_xmcpq")
 
 [node name="CharacterStateMachine" parent="." instance=ExtResource("9_8icjg")]
 
-[node name="PlayerMoveState" parent="CharacterStateMachine" instance=ExtResource("10_kc1bd")]
+[node name="MoveState" parent="CharacterStateMachine" instance=ExtResource("10_kc1bd")]
 process_mode = 4
 
-[node name="PlayerIdleState" parent="CharacterStateMachine" instance=ExtResource("10_nxgb6")]
+[node name="IdleState" parent="CharacterStateMachine" instance=ExtResource("10_nxgb6")]
 process_mode = 4
 
-[node name="PlayerAttackState" parent="CharacterStateMachine" instance=ExtResource("10_ma0xx")]
+[node name="AttackState" parent="CharacterStateMachine" instance=ExtResource("10_ma0xx")]
 process_mode = 4
+lightningScene = ExtResource("18_p812t")
 
-[node name="PlayerDashState" parent="CharacterStateMachine" instance=ExtResource("13_ip43t")]
+[node name="DashState" parent="CharacterStateMachine" instance=ExtResource("13_ip43t")]
 process_mode = 4
+crystalScene = ExtResource("19_vtdan")
 
-[node name="PlayerDeathState" parent="CharacterStateMachine" instance=ExtResource("18_pja3f")]
+[node name="DeathState" parent="CharacterStateMachine" instance=ExtResource("18_pja3f")]
 process_mode = 4

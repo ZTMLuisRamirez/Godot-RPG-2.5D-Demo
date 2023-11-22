@@ -4,8 +4,10 @@ using RPG.General;
 
 namespace RPG.Characters.Player;
 
-public partial class PlayerMoveState : PlayerState
+public partial class MoveState : PlayerState
 {
+	[Export(PropertyHint.Range, "0,20,0.1")] private float speed = 3f;
+
 	public override State StateType => State.Move;
 
 	public override void EnterState()
@@ -20,7 +22,7 @@ public partial class PlayerMoveState : PlayerState
 		var direction = GetMoveInput();
 
 		characterNode.Velocity = new(direction.X, 0, direction.Y);
-		characterNode.Velocity *= characterNode.MoveSpeed;
+		characterNode.Velocity *= speed;
 
 		if (characterNode.Velocity == Vector3.Zero)
 		{

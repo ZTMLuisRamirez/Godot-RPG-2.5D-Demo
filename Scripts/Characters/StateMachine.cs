@@ -1,14 +1,12 @@
 using Godot;
-using System;
 using System.Collections.Generic;
 using RPG.Characters.States;
 using System.Linq;
 using System.Data;
-using System.Diagnostics;
 
 namespace RPG.Characters;
 
-public partial class CharacterStateMachine : Node
+public partial class StateMachine : Node
 {
 	public Dictionary<State, CharacterState> states = new();
 	public CharacterState currentState;

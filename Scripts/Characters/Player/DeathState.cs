@@ -4,7 +4,7 @@ using RPG.General;
 
 namespace RPG.Characters.Player;
 
-public partial class PlayerDeathState : CharacterState
+public partial class DeathState : CharacterState
 {
 	public override State StateType => State.Death;
 

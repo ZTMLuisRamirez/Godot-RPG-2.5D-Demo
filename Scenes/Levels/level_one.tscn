@@ -1,6 +1,6 @@
 [gd_scene load_steps=106 format=3 uid="uid://c8n62stlsw7dn"]
 
-[ext_resource type="PackedScene" uid="uid://blyl84v3kerqe" path="res://Scenes/General/ui.tscn" id="1_2urus"]
+[ext_resource type="PackedScene" uid="uid://blyl84v3kerqe" path="res://Scenes/UI/ui.tscn" id="1_2urus"]
 [ext_resource type="Script" path="res://Scripts/General/LevelManager.cs" id="1_ayy7h"]
 [ext_resource type="PackedScene" uid="uid://dupcd37r2l3p8" path="res://Scenes/Characters/Player/player.tscn" id="1_nkxw5"]
 [ext_resource type="Script" path="res://Scripts/General/Camera.cs" id="2_fs4gi"]
@@ -27,7 +27,7 @@
 [ext_resource type="ArrayMesh" uid="uid://fhfaios1hilq" path="res://Assets/Models/Dungeon/obj/bed_decorated.obj" id="14_ftj8a"]
 [ext_resource type="ArrayMesh" uid="uid://osd1rfqcsssd" path="res://Assets/Models/Dungeon/obj/bottle_C_brown.obj" id="14_pa1ni"]
 [ext_resource type="PackedScene" uid="uid://s3eq3ruprqmh" path="res://Scenes/General/torch.tscn" id="16_1m4fk"]
-[ext_resource type="PackedScene" uid="uid://dp00e8r1a27ku" path="res://Scenes/General/treasure_chest.tscn" id="26_2j8tg"]
+[ext_resource type="PackedScene" uid="uid://dp00e8r1a27ku" path="res://Scenes/Stats/treasure_chest.tscn" id="26_2j8tg"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_dw6pr"]
 rayleigh_color = Color(0.0588235, 0, 0.976471, 1)

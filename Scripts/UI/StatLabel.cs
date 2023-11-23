@@ -1,6 +1,7 @@
 using Godot;
 using RPG.Stats;
-using System;
+
+namespace RPG.UI;
 
 public partial class StatLabel : Label
 {

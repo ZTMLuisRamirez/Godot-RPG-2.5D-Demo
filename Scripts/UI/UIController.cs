@@ -15,7 +15,7 @@ public partial class UIController : Control
 	public override void _Ready()
 	{
 		containers = GetChildren()
-			.Where(child => child is UIContainer or MarginContainer)
+			.Where(child => child is UIContainer)
 			.Cast<UIContainer>()
 			.ToDictionary(child =>
 			{

@@ -1,5 +1,6 @@
 using Godot;
 using RPG.General;
+using RPG.UI;
 
 namespace RPG.Stats;
 

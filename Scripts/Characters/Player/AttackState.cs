@@ -11,7 +11,7 @@ public partial class AttackState : PlayerState
 
 	[Export] private PackedScene lightningScene;
 	[Export] private Timer comboTimerNode;
-	[Export] private int comboThreshold = 4;
+	[Export] private int comboThreshold = 2;
 
 	private int comboCounter = 1;
 
@@ -31,6 +31,8 @@ public partial class AttackState : PlayerState
 		);
 		characterNode.AnimPlayerNode.AnimationFinished += HandleAnimationFinished;
 		characterNode.HitboxNode.BodyEntered += HandleBodyEntered;
+
+		characterNode.AnimPlayerNode.SpeedScale = 1.5f;
 	}
 
 	public override void ExitState()
@@ -41,13 +43,15 @@ public partial class AttackState : PlayerState
 
 		characterNode.AnimPlayerNode.AnimationFinished -= HandleAnimationFinished;
 		characterNode.HitboxNode.BodyEntered -= HandleBodyEntered;
+
+		characterNode.AnimPlayerNode.SpeedScale = 1;
 	}
 
 	private void HandleAnimationFinished(StringName animName)
 	{
 		characterNode.ToggleHitbox(true);
 
-		comboCounter = Mathf.Wrap(++comboCounter, 1, 5);
+		comboCounter = Mathf.Wrap(++comboCounter, 1, comboThreshold + 1);
 
 		stateMachineNode.SwitchState(State.Idle);
 	}
@@ -57,8 +61,8 @@ public partial class AttackState : PlayerState
 		characterNode.ToggleHitbox(false);
 
 		var newPosition = characterNode.SpriteNode.FlipH ? Vector3.Left : Vector3.Right;
-		var halfMultiplier = 0.5f;
-		newPosition *= halfMultiplier;
+		var distanceMultiplier = 3;
+		newPosition *= distanceMultiplier;
 
 		characterNode.HitboxNode.Position = newPosition;
 	}

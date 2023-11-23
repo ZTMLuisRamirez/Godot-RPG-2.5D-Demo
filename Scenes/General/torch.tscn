@@ -9,7 +9,7 @@ albedo_texture = ExtResource("2_vohu3")
 [sub_resource type="Gradient" id="Gradient_aojig"]
 colors = PackedColorArray(0.920592, 0.258144, 0.264298, 1, 0.663651, 0.439908, 0.183303, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_1oq7i"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lgg7p"]
 gradient = SubResource("Gradient_aojig")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nkuqo"]
@@ -24,9 +24,9 @@ initial_velocity_max = 1.0
 tangential_accel_min = 0.5
 tangential_accel_max = 1.0
 scale_min = 0.5
-color_ramp = SubResource("GradientTexture1D_1oq7i")
+color_ramp = SubResource("GradientTexture1D_lgg7p")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0nha5"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tk1ib"]
 transparency = 1
 blend_mode = 1
 shading_mode = 0
@@ -34,7 +34,7 @@ vertex_color_use_as_albedo = true
 albedo_color = Color(1, 1, 1, 0.458824)
 
 [sub_resource type="SphereMesh" id="SphereMesh_hnxbq"]
-material = SubResource("StandardMaterial3D_0nha5")
+material = SubResource("StandardMaterial3D_tk1ib")
 radius = 0.1
 height = 0.2
 

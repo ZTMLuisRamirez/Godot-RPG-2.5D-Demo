@@ -1,13 +1,52 @@
-[gd_scene load_steps=10 format=3 uid="uid://b65rm8y0e6l8q"]
+[gd_scene load_steps=20 format=3 uid="uid://b65rm8y0e6l8q"]
 
 [ext_resource type="Script" path="res://Scripts/Abilities/Crystal.cs" id="1_es30a"]
-[ext_resource type="Texture2D" uid="uid://dj4ky621gncce" path="res://Assets/Sprites/Effects/Crystal.png" id="1_grwup"]
-[ext_resource type="Texture2D" uid="uid://8kalx62qrf0w" path="res://Assets/Sprites/Effects/Ice/Burst of ice.png" id="3_2s5fl"]
+[ext_resource type="Texture2D" uid="uid://2eohhfjbu8fg" path="res://Assets/Sprites/Effects/Explosion/Bomb.png" id="2_twxld"]
+[ext_resource type="Texture2D" uid="uid://dyy40uflxnqd0" path="res://Assets/Sprites/Effects/Explosion/1.png" id="3_6ni6l"]
 [ext_resource type="Script" path="res://Scripts/Abilities/Hitbox.cs" id="4_2ym3c"]
+[ext_resource type="Texture2D" uid="uid://duimsgaq5eppn" path="res://Assets/Sprites/Effects/Explosion/2.png" id="4_mwryg"]
+[ext_resource type="Texture2D" uid="uid://dle584l5upd4e" path="res://Assets/Sprites/Effects/Explosion/3.png" id="5_05eht"]
+[ext_resource type="Texture2D" uid="uid://bbh8nfy7onihi" path="res://Assets/Sprites/Effects/Explosion/4.png" id="6_xupdt"]
+[ext_resource type="Texture2D" uid="uid://fdov2uh303vv" path="res://Assets/Sprites/Effects/Explosion/5.png" id="7_rxqo6"]
+[ext_resource type="Texture2D" uid="uid://bhuhpkvblo6d6" path="res://Assets/Sprites/Effects/Explosion/6.png" id="8_1r3eb"]
+[ext_resource type="Texture2D" uid="uid://c4jabtn8iuygf" path="res://Assets/Sprites/Effects/Explosion/7.png" id="9_bxd5w"]
+[ext_resource type="Texture2D" uid="uid://cpnh4f14rktwt" path="res://Assets/Sprites/Effects/Explosion/8.png" id="10_421i3"]
+[ext_resource type="Texture2D" uid="uid://ums5qwm0mmfw" path="res://Assets/Sprites/Effects/Explosion/9.png" id="11_iohfq"]
+[ext_resource type="Texture2D" uid="uid://cu7ksf17drmdy" path="res://Assets/Sprites/Effects/Explosion/10.png" id="12_d12uw"]
+[ext_resource type="Texture2D" uid="uid://da4iqs0dmsrkl" path="res://Assets/Sprites/Effects/Explosion/11.png" id="13_rurj1"]
+
+[sub_resource type="Animation" id="Animation_r8lav"]
+resource_name = "Expand"
+loop_mode = 1
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(2.5, 2.5, 2.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_twxld")]
+}
 
 [sub_resource type="Animation" id="Animation_vdrxn"]
 resource_name = "Explosion"
-step = 0.142857
+step = 0.0909091
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -15,67 +54,19 @@ tracks/0/path = NodePath(".:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.0909091, 0.181818, 0.272727, 0.363636, 0.454545, 0.545455, 0.636364, 0.727273, 0.818182, 0.909091),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("3_2s5fl")]
+"values": [ExtResource("3_6ni6l"), ExtResource("4_mwryg"), ExtResource("5_05eht"), ExtResource("6_xupdt"), ExtResource("7_rxqo6"), ExtResource("8_1r3eb"), ExtResource("9_bxd5w"), ExtResource("10_421i3"), ExtResource("11_iohfq"), ExtResource("12_d12uw"), ExtResource("13_rurj1")]
 }
-tracks/1/type = "value"
+tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:hframes")
+tracks/1/path = NodePath("..")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:vframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [7]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.142857, 0.285714, 0.428571, 0.571429, 0.714286, 0.857143),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath(".:scale")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.857143),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(1, 1, 1), Vector3(3.5, 3.5, 3.5)]
-}
-tracks/5/type = "method"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("..")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0.428571),
+"times": PackedFloat32Array(0.545455),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -88,90 +79,37 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
+tracks/0/path = NodePath(".:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [null]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:texture")
+tracks/1/path = NodePath(".:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("1_grwup")]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:hframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [6]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:vframes")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath(".:scale")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_r8lav"]
-resource_name = "Spin"
-loop_mode = 1
-step = 0.166667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5, 0.666667, 0.833333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m2cjc"]
 _data = {
+"Expand": SubResource("Animation_r8lav"),
 "Explosion": SubResource("Animation_vdrxn"),
-"RESET": SubResource("Animation_1jop7"),
-"Spin": SubResource("Animation_r8lav")
+"RESET": SubResource("Animation_1jop7")
 }
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dlvm8"]
-radius = 5.0
+radius = 3.25
 
 [node name="Crystal" type="Node3D" node_paths=PackedStringArray("timerNode", "animationPlayerNode", "collisionNode")]
 script = ExtResource("1_es30a")
@@ -181,13 +119,10 @@ collisionNode = NodePath("Hitbox/CollisionShape3D")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 texture_filter = 0
-texture = ExtResource("1_grwup")
-hframes = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite3D")
-autoplay = "Spin"
-speed_scale = 2.0
+autoplay = "Expand"
 libraries = {
 "": SubResource("AnimationLibrary_m2cjc")
 }
@@ -202,4 +137,3 @@ disabled = true
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
-autostart = true

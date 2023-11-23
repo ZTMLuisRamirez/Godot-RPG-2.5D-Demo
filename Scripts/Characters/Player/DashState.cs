@@ -29,18 +29,7 @@ public partial class DashState : PlayerState
 		base.EnterState();
 
 		characterNode.AnimPlayerNode.Play(GameConstants.DASH_ANIM);
-		dashTimerNode.Start();
-	}
 
-	public override void _PhysicsProcess(double delta)
-	{
-		characterNode.Velocity = direction * speed;
-		characterNode.MoveAndSlide();
-		Flip();
-	}
-
-	private void BeginDashMovement()
-	{
 		var vector2Direction = GetMoveInput();
 		direction = new(vector2Direction.X, 0, vector2Direction.Y);
 
@@ -53,6 +42,15 @@ public partial class DashState : PlayerState
 		var crystal = crystalScene.Instantiate<Node3D>();
 		GetTree().CurrentScene.AddChild(crystal);
 		crystal.GlobalPosition = characterNode.GlobalPosition;
+
+		dashTimerNode.Start();
+	}
+
+	public override void _PhysicsProcess(double delta)
+	{
+		characterNode.Velocity = direction * speed;
+		characterNode.MoveAndSlide();
+		Flip();
 	}
 
 	private void HandleDashTimeout()

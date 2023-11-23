@@ -1,6 +1,4 @@
-using System.Linq;
 using Godot;
-using RPG.Characters.States;
 using RPG.General;
 using RPG.Stats;
 

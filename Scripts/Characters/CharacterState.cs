@@ -1,7 +1,7 @@
 using System;
 using Godot;
 
-namespace RPG.Characters.States;
+namespace RPG.Characters;
 
 public abstract partial class CharacterState : Node
 {

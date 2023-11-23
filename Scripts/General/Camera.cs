@@ -1,6 +1,4 @@
 using Godot;
-using RPG.Characters;
-using System;
 
 namespace RPG.General;
 

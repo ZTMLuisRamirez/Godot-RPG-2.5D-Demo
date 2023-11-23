@@ -1,4 +1,4 @@
-namespace RPG.Characters.States;
+namespace RPG.Characters;
 
 public enum State
 {

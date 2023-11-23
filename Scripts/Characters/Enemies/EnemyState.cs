@@ -46,7 +46,7 @@ public abstract partial class EnemyState : CharacterState
         }
     }
 
-    protected Vector3 CalculateUnsafeVelocity(float speed)
+    protected void MoveWithAI(float speed)
     {
         var nextPathPosition = characterNode.AgentNode.GetNextPathPosition();
         var currentPosition = characterNode.GlobalPosition;
@@ -54,7 +54,10 @@ public abstract partial class EnemyState : CharacterState
         velocity = velocity.Normalized();
         velocity *= speed;
 
-        return velocity;
+        characterNode.Velocity = velocity;
+        characterNode.MoveAndSlide();
+
+        Flip();
     }
 
     protected void HandleChaseAreaBodyEntered(Node3D body)

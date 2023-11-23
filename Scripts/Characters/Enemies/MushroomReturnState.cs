@@ -40,7 +40,7 @@ public partial class MushroomReturnState : EnemyState
             return;
         }
 
-        characterNode.AgentNode.Velocity = CalculateUnsafeVelocity(speed);
+        MoveWithAI(speed);
     }
 
     private void HandleVelocityComputed(Vector3 safeVelocity)

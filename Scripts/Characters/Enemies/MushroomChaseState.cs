@@ -1,3 +1,4 @@
+using System;
 using Godot;
 using RPG.General;
 using RPG.Utilities;
@@ -9,6 +10,7 @@ public partial class MushroomChaseState : EnemyState
 	public override State StateType => State.Chase;
 
 	[Export(PropertyHint.Range, "0,20,0.1")] private float speed = 1;
+	[Export] private Timer timerNode;
 
 	private CharacterBody3D target;
 
@@ -21,6 +23,7 @@ public partial class MushroomChaseState : EnemyState
 		characterNode.AttackAreaNode.BodyEntered += HandleAttackAreaBodyEntered;
 		characterNode.ChaseAreaNode.BodyExited += HandleChaseAreaBodyExited;
 		characterNode.AgentNode.VelocityComputed += HandleVelocityComputed;
+		timerNode.Timeout += HandleTimeout;
 
 		target = characterNode.ChaseAreaNode.GetFirstTarget();
 	}
@@ -32,6 +35,7 @@ public partial class MushroomChaseState : EnemyState
 		characterNode.AttackAreaNode.BodyEntered -= HandleAttackAreaBodyEntered;
 		characterNode.ChaseAreaNode.BodyExited -= HandleChaseAreaBodyExited;
 		characterNode.AgentNode.VelocityComputed -= HandleVelocityComputed;
+		timerNode.Timeout -= HandleTimeout;
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -42,9 +46,13 @@ public partial class MushroomChaseState : EnemyState
 			return;
 		}
 
-		characterNode.AgentNode.TargetPosition = target.GlobalPosition;
+		if (characterNode.AttackAreaNode.HasOverlappingBodies())
+		{
+			stateMachineNode.SwitchState(State.Attack);
+			return;
+		}
 
-		characterNode.AgentNode.Velocity = CalculateUnsafeVelocity(speed);
+		MoveWithAI(speed);
 	}
 
 	private void HandleVelocityComputed(Vector3 safeVelocity)
@@ -63,5 +71,10 @@ public partial class MushroomChaseState : EnemyState
 	private void HandleAttackAreaBodyEntered(Node3D body)
 	{
 		stateMachineNode.SwitchState(State.Attack);
+	}
+
+	private void HandleTimeout()
+	{
+		characterNode.AgentNode.TargetPosition = target.GlobalPosition;
 	}
 }

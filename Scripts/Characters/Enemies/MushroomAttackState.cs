@@ -1,3 +1,4 @@
+using System;
 using Godot;
 using RPG.General;
 using RPG.Utilities;
@@ -21,6 +22,8 @@ public partial class MushroomAttackState : EnemyState
 
 		targetPosition = target.GlobalPosition;
 		characterNode.AnimPlayerNode.AnimationFinished += HandleAnimationFinished;
+
+		FaceTarget();
 	}
 
 	public override void ExitState()
@@ -38,6 +41,13 @@ public partial class MushroomAttackState : EnemyState
 		characterNode.HitboxNode.GlobalPosition = targetPosition;
 	}
 
+	private void FaceTarget()
+	{
+		var offset = targetPosition - characterNode.GlobalPosition;
+
+		characterNode.SpriteNode.FlipH = offset.X < 0;
+	}
+
 	private void HandleAnimationFinished(StringName animName)
 	{
 		characterNode.ToggleHitbox(true);
@@ -51,5 +61,9 @@ public partial class MushroomAttackState : EnemyState
 		}
 
 		characterNode.AnimPlayerNode.Play(GameConstants.ATTACK_ANIM);
+
+		// Possible Solution
+		targetPosition = target.GlobalPosition;
+		FaceTarget();
 	}
 }

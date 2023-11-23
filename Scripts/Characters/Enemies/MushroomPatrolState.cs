@@ -51,7 +51,7 @@ public partial class MushroomPatrolState : EnemyState
 	{
 		if (!idleTimerNode.IsStopped()) return;
 
-		characterNode.AgentNode.Velocity = CalculateUnsafeVelocity(speed);
+		MoveWithAI(speed);
 	}
 
 	private Vector3 GetPointGlobalPosition()

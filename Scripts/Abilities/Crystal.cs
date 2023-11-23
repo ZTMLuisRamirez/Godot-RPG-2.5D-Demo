@@ -9,6 +9,8 @@ public partial class Crystal : Ability
 
 	public override void _Ready()
 	{
+		base._Ready();
+
 		timerNode.Timeout += HandleTimeout;
 	}
 

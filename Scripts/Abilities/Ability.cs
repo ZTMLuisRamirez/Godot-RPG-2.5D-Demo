@@ -1,3 +1,4 @@
+using System;
 using Godot;
 
 namespace RPG.Abilities;
@@ -12,6 +13,16 @@ public abstract partial class Ability : Node3D
 
     [Export] protected AnimationPlayer animationPlayerNode;
     [Export] protected CollisionShape3D collisionNode;
+
+    public override void _Ready()
+    {
+        animationPlayerNode.AnimationFinished += HandleAnimationFinished;
+    }
+
+    private void HandleAnimationFinished(StringName animName)
+    {
+        QueueFree();
+    }
 
     private void Hit()
     {

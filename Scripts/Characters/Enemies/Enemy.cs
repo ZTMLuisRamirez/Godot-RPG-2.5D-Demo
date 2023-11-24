@@ -21,6 +21,9 @@ public partial class Enemy : Character
 
         health.StatValue -= hitbox.GetDamage();
 
+        ShaderMat.SetShaderParameter("active", true);
+        HurtShaderTimerNode.Start();
+
         if (hitbox.CanStun())
         {
             RaiseStun();

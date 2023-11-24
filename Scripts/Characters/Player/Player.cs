@@ -24,6 +24,9 @@ public partial class Player : Character
         var health = GetStatResource(Stat.Health);
 
         health.StatValue -= hitbox.GetDamage();
+
+        ShaderMat.SetShaderParameter("active", true);
+        HurtShaderTimerNode.Start();
     }
 
     private void HandleBonus(BonusResource resource)

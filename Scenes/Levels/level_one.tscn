@@ -389,8 +389,8 @@ enemyContainerNode = NodePath("Enemies")
 environment = SubResource("Environment_bcuxa")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.694759, 0.719243, 0, -0.719243, 0.694759, 8.12896, 7.77924, 8.8599)
-light_energy = 0.18
+transform = Transform3D(0.923692, -0.275567, 0.266186, -7.36365e-09, 0.694759, 0.719243, -0.383135, -0.664359, 0.641744, 19.3654, 2.96333, 6.32952)
+light_energy = 0.2
 shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target")]

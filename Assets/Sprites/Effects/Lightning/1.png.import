@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://co20t4bqxmqiw"
-path.s3tc="res://.godot/imported/1.png-45f80a38f247cb51b7d1aafbb7b715dd.s3tc.ctex"
+path="res://.godot/imported/1.png-45f80a38f247cb51b7d1aafbb7b715dd.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Assets/Sprites/Effects/Lightning/1.png"
-dest_files=["res://.godot/imported/1.png-45f80a38f247cb51b7d1aafbb7b715dd.s3tc.ctex"]
+dest_files=["res://.godot/imported/1.png-45f80a38f247cb51b7d1aafbb7b715dd.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

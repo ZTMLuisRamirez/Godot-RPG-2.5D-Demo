@@ -1,9 +1,10 @@
-[gd_scene load_steps=98 format=3 uid="uid://dupcd37r2l3p8"]
+[gd_scene load_steps=100 format=3 uid="uid://dupcd37r2l3p8"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/Player/Player.cs" id="1_k2rsh"]
 [ext_resource type="Resource" uid="uid://6gidf6gvpmta" path="res://Scenes/Resources/player_health_stat.tres" id="2_dwlun"]
 [ext_resource type="Resource" uid="uid://x2amu5p3py4" path="res://Scenes/Resources/player_strength_stat.tres" id="3_5geoj"]
 [ext_resource type="Texture2D" uid="uid://xvdw7jb06e2e" path="res://Assets/Sprites/Characters/Player/Idle Blinking/Idle Blinking_000.png" id="4_6d31k"]
+[ext_resource type="Shader" path="res://Scenes/Shaders/hit.gdshader" id="4_isbla"]
 [ext_resource type="Texture2D" uid="uid://qginkbqb7a56" path="res://Assets/Sprites/Characters/Player/Kicking/Kicking_000.png" id="5_50jpq"]
 [ext_resource type="Texture2D" uid="uid://orx3mlgo7qfg" path="res://Assets/Sprites/Characters/Player/Kicking/Kicking_001.png" id="6_ers1h"]
 [ext_resource type="Texture2D" uid="uid://c7elnx7oi5fi" path="res://Assets/Sprites/Characters/Player/Kicking/Kicking_002.png" id="7_bwmsy"]
@@ -88,6 +89,13 @@
 [ext_resource type="Texture2D" uid="uid://b28gu4vmq6u31" path="res://Assets/Sprites/Characters/Player/Running/Running_009.png" id="37_v3npk"]
 [ext_resource type="Texture2D" uid="uid://d4crjfgmqxrrw" path="res://Assets/Sprites/Characters/Player/Running/Running_010.png" id="38_acqfu"]
 [ext_resource type="Texture2D" uid="uid://cdgctgfv81alr" path="res://Assets/Sprites/Characters/Player/Running/Running_011.png" id="39_x5n5l"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6311t"]
+render_priority = 1
+shader = ExtResource("4_isbla")
+shader_parameter/active = false
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/tex = ExtResource("4_6d31k")
 
 [sub_resource type="Animation" id="Animation_qne33"]
 resource_name = "Attack1"
@@ -247,7 +255,7 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_llrcg"]
 size = Vector3(2, 2, 2)
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("HurtboxNode", "SpriteNode", "AnimPlayerNode", "HitboxNode")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("HurtboxNode", "SpriteNode", "AnimPlayerNode", "HitboxNode", "HurtShaderTimerNode")]
 collision_mask = 15
 wall_min_slide_angle = 3.14159
 script = ExtResource("1_k2rsh")
@@ -256,8 +264,10 @@ HurtboxNode = NodePath("Hurtbox")
 SpriteNode = NodePath("Sprite3D")
 AnimPlayerNode = NodePath("AnimationPlayer")
 HitboxNode = NodePath("Hitbox")
+HurtShaderTimerNode = NodePath("HurtShaderTimer")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
+material_overlay = SubResource("ShaderMaterial_6311t")
 alpha_cut = 2
 texture_filter = 0
 texture = ExtResource("4_6d31k")
@@ -286,6 +296,10 @@ collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
 shape = ExtResource("10_xmcpq")
+
+[node name="HurtShaderTimer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
 
 [node name="CharacterStateMachine" parent="." instance=ExtResource("9_8icjg")]
 

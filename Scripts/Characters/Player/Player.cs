@@ -19,9 +19,9 @@ public partial class Player : Character
 
     private void HandleBodyEntered(Node3D body)
     {
-        if (body is not IHitbox hitbox) return;
+        if (body is not IHitbox hitbox) { return; }
 
-        var health = GetStatResource(Stat.Health);
+        StatResource health = GetStatResource(Stat.Health);
 
         health.StatValue -= hitbox.GetDamage();
 
@@ -31,7 +31,7 @@ public partial class Player : Character
 
     private void HandleBonus(BonusResource resource)
     {
-        var targetStat = GetStatResource(resource.StatType);
+        StatResource targetStat = GetStatResource(resource.StatType);
 
         targetStat.StatValue += resource.Amount;
     }

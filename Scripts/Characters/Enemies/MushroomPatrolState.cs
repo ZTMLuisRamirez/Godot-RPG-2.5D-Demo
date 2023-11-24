@@ -71,7 +71,7 @@ public partial class MushroomPatrolState : EnemyState
 	{
 		characterNode.AnimPlayerNode.Play(GameConstants.IDLE_ANIM);
 
-		var rng = new RandomNumberGenerator();
+		RandomNumberGenerator rng = new();
 		idleTimerNode.WaitTime = rng.RandfRange(0, maxIdleTime);
 		idleTimerNode.Start();
 	}

@@ -36,11 +36,11 @@ public abstract partial class CharacterState : Node
 
     protected void Flip()
     {
-        var isNotMovingHorizontally = characterNode.Velocity.X == 0;
+        bool isNotMovingHorizontally = characterNode.Velocity.X == 0;
 
-        if (isNotMovingHorizontally) return;
+        if (isNotMovingHorizontally) { return; }
 
-        var isMovingLeft = characterNode.Velocity.X < 0;
+        bool isMovingLeft = characterNode.Velocity.X < 0;
 
         characterNode.SpriteNode.FlipH = isMovingLeft;
     }

@@ -17,9 +17,9 @@ public partial class InteractionIcon : Area3D
 
 	public override void _Input(InputEvent inputEvent)
 	{
-		if (!HasOverlappingBodies()) return;
+		if (!HasOverlappingBodies()) { return; }
 
-		if (!Input.IsActionJustPressed(GameConstants.INPUT_INTERACT)) return;
+		if (!Input.IsActionJustPressed(GameConstants.INPUT_INTERACT)) { return; }
 
 		EmitSignal(SignalName.Interacted);
 	}

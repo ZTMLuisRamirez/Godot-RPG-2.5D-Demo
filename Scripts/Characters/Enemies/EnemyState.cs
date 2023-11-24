@@ -18,7 +18,7 @@ public abstract partial class EnemyState : CharacterState
 
         characterNode.ToggleHitbox(true);
 
-        var startingPointPosition = pathNode.Curve.GetPointPosition(0);
+        Vector3 startingPointPosition = pathNode.Curve.GetPointPosition(0);
         initialPathPosition = startingPointPosition + pathNode.GlobalPosition;
     }
 
@@ -48,9 +48,9 @@ public abstract partial class EnemyState : CharacterState
 
     protected void MoveWithAI(float speed)
     {
-        var nextPathPosition = characterNode.AgentNode.GetNextPathPosition();
-        var currentPosition = characterNode.GlobalPosition;
-        var velocity = nextPathPosition - currentPosition;
+        Vector3 nextPathPosition = characterNode.AgentNode.GetNextPathPosition();
+        Vector3 currentPosition = characterNode.GlobalPosition;
+        Vector3 velocity = nextPathPosition - currentPosition;
         velocity = velocity.Normalized();
         velocity *= speed;
 

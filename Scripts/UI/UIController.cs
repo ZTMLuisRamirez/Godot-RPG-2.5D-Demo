@@ -44,7 +44,9 @@ public partial class UIController : Control
 	{
 		HideContainers();
 
-		var visibleContainer = isPaused ? ContainerType.Pause : ContainerType.Stats;
+		ContainerType visibleContainer = isPaused ?
+			ContainerType.Pause :
+			ContainerType.Stats;
 
 		containers[visibleContainer].Visible = true;
 	}
@@ -84,7 +86,7 @@ public partial class UIController : Control
 	{
 		HideContainers();
 
-		var container = containers[ContainerType.Reward];
+		UIContainer container = containers[ContainerType.Reward];
 
 		container.TextureNode.Texture = resource.SpriteTexture;
 		container.LabelNode.Text = resource.Description;

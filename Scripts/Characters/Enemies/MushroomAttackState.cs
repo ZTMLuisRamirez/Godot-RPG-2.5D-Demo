@@ -18,7 +18,8 @@ public partial class MushroomAttackState : EnemyState
 		characterNode.AnimPlayerNode.Play(GameConstants.ATTACK_ANIM);
 		characterNode.Velocity = Vector3.Zero;
 
-		var target = characterNode.AttackAreaNode.GetFirstTarget();
+		CharacterBody3D target = characterNode.AttackAreaNode
+			.GetFirstTarget();
 
 		targetPosition = target.GlobalPosition;
 		characterNode.AnimPlayerNode.AnimationFinished += HandleAnimationFinished;
@@ -43,7 +44,7 @@ public partial class MushroomAttackState : EnemyState
 
 	private void FaceTarget()
 	{
-		var offset = targetPosition - characterNode.GlobalPosition;
+		Vector3 offset = targetPosition - characterNode.GlobalPosition;
 
 		characterNode.SpriteNode.FlipH = offset.X < 0;
 	}
@@ -52,7 +53,8 @@ public partial class MushroomAttackState : EnemyState
 	{
 		characterNode.ToggleHitbox(true);
 
-		var target = characterNode.AttackAreaNode.GetFirstTarget();
+		CharacterBody3D target = characterNode.AttackAreaNode
+			.GetFirstTarget();
 
 		if (target == null)
 		{

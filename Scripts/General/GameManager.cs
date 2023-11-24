@@ -38,7 +38,7 @@ public partial class GameManager : Node
     {
         canPause = true;
 
-        var scene = GetTree().CurrentScene;
+        Node scene = GetTree().CurrentScene;
 
         if (scene is LevelManager levelManager)
         {
@@ -51,9 +51,9 @@ public partial class GameManager : Node
 
     public override void _Input(InputEvent inputEvent)
     {
-        if (!canPause) return;
+        if (!canPause) { return; }
 
-        if (!Input.IsActionJustPressed(GameConstants.INPUT_PAUSE)) return;
+        if (!Input.IsActionJustPressed(GameConstants.INPUT_PAUSE)) { return; }
 
         GetTree().Paused = !GetTree().Paused;
 

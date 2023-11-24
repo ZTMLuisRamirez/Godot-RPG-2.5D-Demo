@@ -30,7 +30,7 @@ public partial class DashState : PlayerState
 
 		characterNode.AnimPlayerNode.Play(GameConstants.DASH_ANIM);
 
-		var vector2Direction = GetMoveInput();
+		Vector2 vector2Direction = GetMoveInput();
 		direction = new(vector2Direction.X, 0, vector2Direction.Y);
 
 		if (direction == Vector3.Zero)
@@ -39,7 +39,7 @@ public partial class DashState : PlayerState
 		}
 
 		// Instantiate Crystal
-		var crystal = crystalScene.Instantiate<Node3D>();
+		Node3D crystal = crystalScene.Instantiate<Node3D>();
 		GetTree().CurrentScene.AddChild(crystal);
 		crystal.GlobalPosition = characterNode.GlobalPosition;
 

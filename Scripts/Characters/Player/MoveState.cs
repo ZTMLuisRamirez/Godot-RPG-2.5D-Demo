@@ -18,7 +18,7 @@ public partial class MoveState : PlayerState
 
 	public override void _PhysicsProcess(double delta)
 	{
-		var direction = GetMoveInput();
+		Vector2 direction = GetMoveInput();
 
 		characterNode.Velocity = new(direction.X, 0, direction.Y);
 		characterNode.Velocity *= speed;

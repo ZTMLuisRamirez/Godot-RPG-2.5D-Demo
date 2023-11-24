@@ -122,7 +122,7 @@ StatValue = 4.0
 resource_local_to_scene = true
 render_priority = 1
 shader = ExtResource("4_dyhbu")
-shader_parameter/active = true
+shader_parameter/active = false
 shader_parameter/flash_color = Color(1, 1, 1, 1)
 shader_parameter/tex = ExtResource("4_yfgxv")
 

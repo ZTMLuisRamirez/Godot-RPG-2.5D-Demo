@@ -16,7 +16,7 @@ public partial class IdleState : PlayerState
 
     public override void _PhysicsProcess(double delta)
     {
-        var direction = GetMoveInput();
+        Vector2 direction = GetMoveInput();
 
         if (direction != Vector2.Zero)
         {

@@ -15,9 +15,9 @@ public partial class Enemy : Character
 
     private void HandleBodyEntered(Node3D body)
     {
-        if (body is not IHitbox hitbox) return;
+        if (body is not IHitbox hitbox) { return; }
 
-        var health = GetStatResource(Stat.Health);
+        StatResource health = GetStatResource(Stat.Health);
 
         health.StatValue -= hitbox.GetDamage();
 

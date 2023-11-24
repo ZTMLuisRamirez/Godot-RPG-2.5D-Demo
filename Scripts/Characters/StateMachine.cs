@@ -35,10 +35,7 @@ public partial class StateMachine : Node
 			);
 		}
 
-		if (!states[newState].CanTransition())
-		{
-			return;
-		}
+		if (!states[newState].CanTransition()) { return; }
 
 		currentState.ExitState();
 		currentState = states[newState];

@@ -60,8 +60,8 @@ public partial class AttackState : PlayerState
 	{
 		characterNode.ToggleHitbox(false);
 
-		var newPosition = characterNode.SpriteNode.FlipH ? Vector3.Left : Vector3.Right;
-		var distanceMultiplier = 3;
+		Vector3 newPosition = characterNode.SpriteNode.FlipH ? Vector3.Left : Vector3.Right;
+		int distanceMultiplier = 3;
 		newPosition *= distanceMultiplier;
 
 		characterNode.HitboxNode.Position = newPosition;
@@ -69,15 +69,15 @@ public partial class AttackState : PlayerState
 
 	private void HandleBodyEntered(Node3D body)
 	{
-		if (comboCounter != comboThreshold) return;
+		if (comboCounter != comboThreshold) { return; }
 
-		var enemy = characterNode.HitboxNode.GetOverlappingBodies()
+		Node3D enemy = characterNode.HitboxNode.GetOverlappingBodies()
 			.Where(child => child is Enemy)
 			.FirstOrDefault();
 
-		if (enemy == null) return;
+		if (enemy == null) { return; }
 
-		var lightning = lightningScene.Instantiate<Node3D>();
+		Node3D lightning = lightningScene.Instantiate<Node3D>();
 		GetTree().CurrentScene.AddChild(lightning);
 		lightning.GlobalPosition = body.GlobalPosition;
 	}

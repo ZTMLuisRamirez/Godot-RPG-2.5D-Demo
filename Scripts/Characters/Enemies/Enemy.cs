@@ -24,6 +24,8 @@ public partial class Enemy : Character
         ShaderMat.SetShaderParameter("active", true);
         HurtShaderTimerNode.Start();
 
+        GD.Print("Enemy hit");
+
         if (hitbox.CanStun())
         {
             RaiseStun();

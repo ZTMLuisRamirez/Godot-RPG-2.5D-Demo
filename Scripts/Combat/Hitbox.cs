@@ -6,10 +6,12 @@ namespace RPG.Combat;
 
 public partial class Hitbox : Area3D, IHitbox
 {
+	[Export] private bool canStun = false;
+
 	public float GetDamage()
 	{
 		return GetOwner<Character>().GetStatResource(Stat.Strength).StatValue;
 	}
 
-	public bool CanStun() => false;
+	public bool CanStun() => canStun;
 }

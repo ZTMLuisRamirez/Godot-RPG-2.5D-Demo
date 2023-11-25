@@ -31,6 +31,7 @@ public partial class UIController : Control
 
 		containers[ContainerType.Start].ButtonNode.Pressed += HandleStartPressed;
 		containers[ContainerType.Reward].ButtonNode.Pressed += HandleRewardPressed;
+		containers[ContainerType.Pause].ButtonNode.Pressed += HandlePausePressed;
 
 		GameEvents.OnPauseToggled += HandlePauseToggled;
 		GameEvents.OnVictory += HandleVictory;
@@ -49,6 +50,13 @@ public partial class UIController : Control
 			ContainerType.Stats;
 
 		containers[visibleContainer].Visible = true;
+	}
+
+	private void HandlePausePressed()
+	{
+		GetTree().Paused = !GetTree().Paused;
+
+		HandlePauseToggled(false);
 	}
 
 	private void HandleStartPressed()
